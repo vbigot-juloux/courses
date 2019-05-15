@@ -36,7 +36,7 @@ library(htmltools)
 <hr style="height: 2px; border: 0; color: black; background-color: black;">
 
 <h2 style="font-size: 20px; color: #808080"><a id="tei_sommaire" style="color: #808080">Sommaire</a></h2>
-<h3 style="font-size: 16px"> Séance du 17 avril 2019</h3>
+<h3 style="font-size: 16px"> Séance du 17 avril 2019 (1)</h3>
 
 <ul style="list-style-type:upper-roman; text-align: justify; font-size: 14px">
 <li><a href="#tei_xml_bref">En bref...</a></li>
@@ -48,10 +48,18 @@ library(htmltools)
 <li><a href="#tei_assistance">Assistance et groupes d’entraide en ligne (liste francophone Renater, liste anglophone TEI-L, TEI GitHub, Slack, Stackoverflow)</a>.</li>
 </ul>
 
+<h3 style="font-size: 16px"> Séance du 24 avril 2019 (2)</h3>
+<ul style="list-style-type:upper-roman; text-align: justify; font-size: 14px">
+<li><a href="#tei_carte">Carte heuristique (exemple : XMind)</a> : indispensable pour déterminer les besoins, les données à afficher et/ou à manipuler.</li>
+<li><a href="#tei_intro_ODD">Brève introduction au manuel d’encodage ODD</a>.</li>
+<li><a href="#tei_intro_SchemaTEI">Introduction à la structuration d’un schéma TEI en particulier le module [tei]</a>.</li>
+<li><a href="#tei_oxygen">Brève introduction à Oxygen XML Editeur</a> (logiciel utilisé pour les séances).</li>
+<li><a href="#tei_xpath">Arborescence d’un document TEI, brève introduction à XPath</a> (approfondissement avec Peter Stokes).</li>
+</ul>
 
 
 <hr style="height: 1px; border: 0; color: black; background-color: black;">
-<h2 style="font-size: 20px; color: #808080">I. <a id="tei_xml_bref" style="color: #808080">En bref...</a></h2>
+<h2 style="font-size: 20px; color: #808080">1.I. <a id="tei_xml_bref" style="color: #808080">En bref...</a></h2>
 
 <ul style="text-align: justify">
 <li>L'<i>Extensible Markup Language</i> (abr. <code>XML</code>) a été développé en 1996. </li>
@@ -68,7 +76,7 @@ library(htmltools)
 <br>
 <hr>
 <br>
-<h2 style="font-size: 20px; color: #808080">II. <a id="abcdaire_semantique" style="color: #808080">Bref abécédaire sémantique</a></h2>
+<h2 style="font-size: 20px; color: #808080">1.II. <a id="abcdaire_semantique" style="color: #808080">Bref abécédaire sémantique</a></h2>
 
 <ul style="text-align: justify">
 <li><i>Markup language</i> : un système pour annoter un document à partir d'une codification syntaxique qui est aisément identifiable par rapport au contenu à analyser. <i>Markup languages</i> : <code>LaTeX</code>, <code>HTML</code>, <code>XHTML</code>, ainsi que les langages issus de <code>XML</code>, Resource Description Framework, (abr. <code>RDF</code>), Web Ontology Language (abr. <code>OWL</code>) et bien sûr, <code>TEI</code> -- il n'est pas rare de lire <code>TEI-XML</code>.</li>
@@ -91,7 +99,7 @@ Notez que le chevron fermant la balise d'élément vide est précédé de <code>
 <br>
 <hr>
 <br>
-<h2 style="font-size: 20px; color: #808080">III. <a id="tei_vs_xml" style="color: #808080"><code>TEI</code> versus <code>XML</code></a></h2>
+<h2 style="font-size: 20px; color: #808080">1.III. <a id="tei_vs_xml" style="color: #808080"><code>TEI</code> versus <code>XML</code></a></h2>
 
 <h3 style="font-size: 16px">Principaux points communs entre l'encodage <code>TEI</code> et <code>XML</code> </h3>
 <ul style="text-align: justify">
@@ -123,7 +131,7 @@ Notez que le chevron fermant la balise d'élément vide est précédé de <code>
 <br>
 <hr>
 <br>
-<h2 style="font-size: 20px; color: #808080">IV. <a id="pourquoi_tei" style="color: #808080">Pourquoi utiliser l’encodage <code>TEI</code></a> </h2>
+<h2 style="font-size: 20px; color: #808080">1.IV. <a id="pourquoi_tei" style="color: #808080">Pourquoi utiliser l’encodage <code>TEI</code></a> </h2>
 
 <img src="Introduction_encodage_TEI-figure/tei-logo.png" style="width 50%"/>
 <br><br>
@@ -137,11 +145,11 @@ Voir également la vidéo suivante :<br><br> [![Why use `TEI`](Introduction_enco
 <br>
 <hr>
 <br>
-<h2 style="font-size: 20px; color: #808080">V. <a id="tei_questions_semantique" style="color: #808080">Questions de sémantique : module (notamment pour les <i>primary sources</i>), classes, <code>&lt;element&gt;</code>, <code>@attribut</code></a> </h2>
+<h2 style="font-size: 20px; color: #808080">1.V. <a id="tei_questions_semantique" style="color: #808080">Questions de sémantique : module (notamment pour les <i>primary sources</i>), classes, <code>&lt;element&gt;</code>, <code>@attribut</code></a> </h2>
 
 <p style="text-align: justify">Un document <code>TEI</code> est constitué de plusieurs <b>modules</b>, imbriqués ou non, dans lesquels se trouvent plusieurs <code>&lt;element&gt;</code>s et <code>@attribut</code>s ordonnés dans des <b>classes</b>.</p>
 
-<h3 style="font-size: 16px">Au sujet des classes de modèles (relatives aux <code>&lt;element&gt;</code>s) : </h3>
+<h3 style="font-size: 16px">Au sujet des <a id="tei_classeModel" style="color: #000">classes de modèles</a> (relatives aux <code>&lt;element&gt;</code>s) : </h3>
 <p>Une <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ST.html#STECCM" target="_blank">classe de modèle</a> permet d'ordonner les <code>&lt;element&gt;</code>s. Les classes peuvent être imbriquées : il y a des classes supérieures et inférieures -- les <code>&lt;element&gt;</code>s d'une classe B héritent alors de la classe supérieure A (voir l'exemple <a href="tei_model_biblPart">ci-dessous</a>) ; autrement dit, les classes de modèles sont <b>ordonnées hiérarchiquement</b> selon une logique sémantique au sein d'un module.
 Il existe à ce jour <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/REF-CLASSES-MODEL.html" target="_blank">119 classes de modèles</a> ou classes d'<code>&lt;element&gt;</code>s référencés Conventionnellement, une classe d'<code>&lt;element&gt;</code> est préfixée de “model.” et s'écrit “model.+ <code>&lt;element&gt;</code> principal”.<br>
 Exemple pour <a id="tei_model_biblPart">model.biblPart</a> :<br><br>
@@ -339,7 +347,7 @@ Note : Conventionnellement, un <code>#</code> précède chaque <code>@facs</code
 <br>
 <hr>
 <br>
-<h2 style="font-size: 20px; color: #808080">VI. <a id="#tei_autres_langages"  style="color: #808080">Autres langages à appréhender pour afficher les données <code>TEI</code> dans un navigateur : <code>CSS</code> et <code>XSLT</code></a></h2>
+<h2 style="font-size: 20px; color: #808080">1.VI. <a id="#tei_autres_langages"  style="color: #808080">Autres langages à appréhender pour afficher les données <code>TEI</code> dans un navigateur : <code>CSS</code> et <code>XSLT</code></a></h2>
 
 <h3 style="font-size: 16px">Qu'est-ce que <code>CSS</code></h3>
 <p><a href="https://www.w3.org/Style/CSS/Overview.en.html" target="_blank">Cascading Style Sheets</a> (abr. <code>CSS</code>, feuille de style) permet d'ajouter du style aux documents, notamment <code>HTML</code (Hyper Text Markup Language), <code>XML</code> et <code>TEI</code> -- couleur, alignement, polices de caractère, tableaux, espacement... Un groupe du travail du W3C met à jour régulièrement les recommandations pour chaque style -- exemple, <a href="https://www.w3.org/TR/2019/WD-css-color-4-20190305/" target="_blank">color</a>. <br>
@@ -369,7 +377,7 @@ Connaître <code>XSLT</code> n'est pas suffisant : il est impératif de connaît
 
 
 <hr style="padding-top: 20px; padding-bottom: 10px">
-<h2 style="font-size: 20px; color: #808080;"> VII. <a id="tei_assistance" style="color: #808080">Assistance et groupes d’entraide en ligne (liste francophone Renater, liste anglophone `TEI-L`, `TEI` GitHub, Slack, Stackoverflow)</a></h2>
+<h2 style="font-size: 20px; color: #808080;"> 1.VII. <a id="tei_assistance" style="color: #808080">Assistance et groupes d’entraide en ligne (liste francophone Renater, liste anglophone TEI-L, TEI GitHub, Slack, Stackoverflow)</a></h2>
 
 <ul>
 <li>Liste francophone Renater <a href="https://groupes.renater.fr/wiki/tei-fr/index" target="_blank">TEI-FR</a> -- seulement accessible aux abonnés</li>
@@ -387,6 +395,77 @@ Rester informé-e, fil Twitter [`TEI` Consortium](https://twitter.com/TEIconsort
 <br>
 <p style="font-size:11px; background-color: #708090; width: 100px; padding: 5px;"><b><a href="#tei_sommaire" style="color: white">Sommaire &#8682;</a></b></p>
 
+<hr style="padding-top: 20px; padding-bottom: 10px">
+<h2 style="font-size: 20px; color: #808080;">2.I. <a id="tei_carte" style="color: #808080">Carte heuristique (exemple : XMind) : indispensable pour déterminer les besoins, les données à afficher et/ou à manipuler.</a></h2>
+
+<p>La carte heuristique (ang. conventionnellement appelée <a href="https://www.tonybuzan.edu.sg/about/mind-maps/" target="_blank"<i>mind map®</i></a> -- marque déposée) aide à structurer un projet (plus généralement ses pensées). Un premier témoignage de schématisation des concepts daterait du Moyen-Âge : le philosophe, écrivain et théologien majorquin <a href="http://classes.bnf.fr/dossitsm/b-lulle.htm" target="_blank">Raymond Lulle</a> a réalisé des schémas circulaires de concepts pour son arbre des sciences <i>Arbor scientiae</i>.<br><br><br>
+<img src="Introduction_encodage_TEI-figure/Arbor_scientie___Raymundi_Lullii_BNF.jpeg" style="width:40%; display: block; margin-left: auto; margin-right: auto;">
+<span style="font-size: 10px; margin-left: 45%">Source image : <a href="https://gallica.bnf.fr/ark:/12148/bpt6k79225g/f4.item" target="_blank">Gallica BNF</a></span><br><br><br>
+Il fut suivi par d'autres scientifiques qui ont schématisé des relations de parenté entre des groupes d'êtres vivants (arbres phylogénétiques), notamment le paléonthologue américain <a href="https://fr.wikipedia.org/wiki/Edward_Hitchcock" target="_blank">Edward Hitchock</a> ou encore <a href="https://fr.wikipedia.org/wiki/Charles_Darwin" target="_blank">Charles Darwin</a> dans le cadre de <a href="https://fr.wikipedia.org/wiki/Arbre_phylogénétique#/media/File:Darwin_tree.png" target="_blank">ses réflexions sur l'origine des espèces</a>. Cependant, c'est au psychologue <a href="https://fr.wikipedia.org/wiki/Tony_Buzan" target="_blank">Antony P. Buzan</a> (dit Tony Buzan) que nous devons le concept de la “<a href="https://www.youtube.com/watch?v=p9jEL_LgAm4" target="_blank">carte heuristique”</a> (<i>mind map®</i>) dans les années 70.</p>
+
+<p>Il existe pléthores de logiciels pour réaliser une carte heuristique, parmi lesquels <a href="https://www.xmind.net" target="_blank">XMind</a> -- la version gratuite sans période d'essai est <a href="https://www.xmind.net/fr/download/xmind8" target="_blank">XMind 8</a>.</p>
+<p>Note : la version payante de <a href="https://www.xmind.net/xmind8-pro/" target="_blank">XMind Pro</a> permet de partager ses cartes heuristiques avec d'autres applications comme <a href="https://evernote.com" target="_blank">Evernote</a>. Ce qui est plutôt pratique pour les utilisateurs d'Evernote — une application hautement recommandée pour les recherches et la prise de note.<br>
+<div style="display: block;"><img src="Introduction_encodage_TEI-figure/XMind.png" style="width: 45%; padding-right: 40px " /><img src="Introduction_encodage_TEI-figure/evernote.png" style="width: 45%;" /></div><br>
+<a href="https://www.xmind.net/fr/zen/" target="_blank">XMind Zen</a> permet une utilisation à la fois sur les téléphones portables, tablettes et ordinateurs.<br>
+Pour les versions payantes, <a href="https://www.xmind.net/fr/pricing/?lang=fr">différents modes de paiements</a> sont proposés, ainsi que des tarifs pour les étudiants.</p>
+
+<p style="font-size:11px; background-color: #708090; width: 100px; padding: 5px;"><b><a href="#tei_sommaire" style="color: white">Sommaire &#8682;</a></b></p>
+
+<hr style="padding-top: 20px; padding-bottom: 10px">
+<h2 style="font-size: 20px; color: #808080;">2.II. <a id="tei_intro_ODD" style="color: #808080">Brève introduction au manuel d’encodage <code>ODD</code>.</a></h2>
+
+<p><b><code>ODD</code> = "One Document Does it all"</b>. Une <code>ODD</code> contient une documentation d'un modèle à suivre.</p>
+<p>Elle sert à personnaliser un <b>schéma de spécification</b> <code>TEI</code> (dont <code>&lt;element&gt;</code>, <code>@attribut</code>), appelé <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-schemaSpec.html" target="_blank"><code>&lt;schemaSpec&gt;</code></a> -- autrement dit qui suit une sémantique -- de sorte de rendre le schéma valide valide. <cite>“Un schéma combine des références aux modules ou aux groupes de spécifications avec d'autres déclarations atomiques. Le traitement d'un élément de schéma doit résoudre tous les conflits entre les déclarations qu'il contient ou les références. Des processeurs ODD différents peuvent générer des schémas et une documentation en utilisant différentes syntaxes concrètes.”</cite> (Source : <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-schemaSpec.html" target="_blank"><code>&lt;schemaSpec&gt;</code></a>)<br><br>
+Par défaut, une <code>ODD</code> est proposée -- qui suit un schéma validé dans Oxygen.<br> 
+Cependant, dans des cas bien précis, il peut être nécessaire de modifier l'<code>ODD</code> de sorte de rendre le document <code>TEI</code> valide. On parle alors de “<b>modification</b>". On distingue deux types de modifications : (1) modification propre (“clean modification”), (2) modification sale (“unclean modification”).<br>
+A l'inverse d'une modification sale, la modification propre n'empêche pas la validité du document conformément aux <a href="#tei_module">modules</a> de la <code>TEI</code>.</p>
+<br>
+<ul>
+<li>ajout de nouveaux <code>&lt;element&gt;</code>s</li>
+<li>suppression d'<code>&lt;element&gt;</code>s</li>
+<li>changement de nom d'<code>&lt;element&gt;</code>s</li>
+<li>modification d'un modèle de contenu</li>
+<li>modification d'une liste d'<code>@attribut</code>s ou de valeurs d'<code>@attribut</code>s, d’un type de contenu</li>
+<li>modification de l'appartenance à une classe</li>
+</ul>
+<br>
+<p>Une ODD personnalisée ne peut contenir qu'un seul <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/USE.html#IM-unified" target="_blank"><code>&lt;schemaSpec&gt;</code></a>. En outre, elle peut contenir quatre types d'information appartenant à des modèles : </p>
+<ol>
+<li>des <code>&lt;element&gt;</code>s de <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-model.oddDecl.html" target="_blank">model.oddDecl</a> pour spécifier le langage d'encodage</li>
+<li>des références à un groupe de spécifications <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-specGrpRef.html" target="_blank">specGrpRef</a></li>
+<li>des <code>&lt;element&gt;</code>s du <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-moduleRef.html" target="_blank">moduleRef</a> -- membre de <a href="https://tei-c.org/Vault/P5/3.5.0/doc/tei-p5-doc/en/html/ref-model.oddRef.html" target="_blank">model.oddRef</a> -- qui fait référence aux modules <code>TEI</code> utilisés</li>
+<li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-moduleRef.html" target="_blank">moduleRef</a> peut aussi faire référence à des modules externes compatibles à incorporer dans un schéma ; dans ce cas, on utilisera les <code>@attribut</code>s optionnels suivants appartenant aux types de données <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-teidata.xmlName.html" target="_blank">teidata.xmlName</a> (précise la valeur d'un <code>@attribut</code>) <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ST.html#DTYPES" target="_blank">datatype</a>) en fonction du contenu à importer : <code>@key</code>, <code>@except</code>, <code>@include</code>, <code>@prefix</code>, <code>@url</code></li>
+</ul>
+<p>Voici un exemple d'<code>ODD</code> prêt à être modifié si nécessaire :
+
+<img src="Introduction_encodage_TEI-figure/ODD_TEI.png" style="width: 65%;"/></p>
+
+<p>Dans l'exemple ci-dessus, le schéma de spécification <code>&lt;schemaSpec&gt;</code> fait référence à quatre <a href="#tei_module">modules</a> qui suivent la valeur de <code>@start</code> "TEI" (c'est-à-dire le module <code>TEI</code>) et identifié par <code>@key</code> : "<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/HD.html">header</a>", "<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/CO.html#COOV" target="_blank">core</a>", "<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ST.html" target="_blank">tei</a>" et "<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/DS.html" target="_blank">textstructure</a>". On peut compléter chaque <code>&lt;moduleRef&gt;</code> par les <code>@attribut</code>s optionnels précédemment énumérés (point 4 ci-dessus).</p>
+
+<p>Lien du wiki de la TEI <a href="https://wiki.tei-c.org/index.php?title=ODD" target="_blank">wiki.tei-c.org</a></p>
+
+<p style="font-size:11px; background-color: #708090; width: 100px; padding: 5px;"><b><a href="#tei_sommaire" style="color: white">Sommaire &#8682;</a></b></p>
+
+<hr style="padding-top: 20px; padding-bottom: 10px">
+<h2 style="font-size: 20px; color: #808080;">2.III. <a id="tei_intro_SchemaTEI" style="color: #808080">Introduction à la structuration d’un schéma <code>TEI</code> en particulier le module <code>[tei]</code>.</a></h2>
+
+<h3 style="font-size: 16px"> Qu'est-ce qu'un schéma <code>TEI</code> ?</h3>
+<p>Un schéma <code>TEI</code> pourrait se résumer ainsi : « <cite>[...] les conventions élaborées dans le cadre du TEI visent à permettre la description de la manière dont un document a été créé ainsi que la façon dont il a été structuré : pages, paragraphes, lignes, chapitres, dialogues, soulignements, ajouts marginaux, ratures, etc. »</cite> (Source : Fabre et Marcotte<a href="#3"><sup style="font-size: 10px">3</sup></a>)</p>
+<p>Il est ainsi impératif de <b>toujours</b> se référer aux <a href="#tei_classeModel">classes de modèles</a> pour chaque <a href="#tei_module">module</a>.<br><br>
+<img src="Introduction_encodage_TEI-figure/tei_carte_structure.png" width="70%"/></p>
+<br><br>
+<img src="Introduction_encodage_TEI-figure/tei_structure.png" width="45%"/>
+<br><br>
+<ul>
+  <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/CO.html" target="_blank"><code>[Core]</code></a> <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teiCorpus.html" target="_blank"><code>&lt;teiCorpus&gt;</code></a><br>
+  - <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/HD.html" target="_blank"><code>[TEI Header]</code></a>  <code>&lt;teiHeader&gt;</code><br>
+  - <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/DS.html" target="_blank"><code>[textstructure]</code> <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-TEI.html" target="_blank"><code>&lt;tei&gt;</code></a><br>
+  - <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/HD.html" target="_blank"><code>[TEI Header]</code></a> <code>&lt;teiHeader&gt;</code>
+  </li>   
+</ul>
+
+<hr>
+<p style="font-size: 9px"><a id="3">[3]</a> : Grégory Fabre et Sophie Marcotte. 2014, <i>Pratiques de l'édition numériques, Montréal, Presses de l'Université de Montréal</i>. (ISBN <a href="https://fr.wikipedia.org/wiki/Spécial:Ouvrages_de_référence/978-2-7606-3203-5" target="_blank">978-2-7606-3203-5</a>, <a href="https://www.pum.umontreal.ca/catalogue/pratiques-de-ledition-numerique" target="_blank">lire en ligne</a>), chap. 10 (« L'organisation des métadonnées »), p. 175.</p> 
 
 <br>
 <hr style="height: 1px; border: 0; color: black; background-color: black;">
