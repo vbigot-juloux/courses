@@ -462,7 +462,8 @@ A l'inverse d'une modification sale, la modification propre n'empêche pas la va
 <p style="text-align: justify">Lien du wiki de la TEI <a href="https://wiki.tei-c.org/index.php?title=ODD" target="_blank">wiki.tei-c.org</a>.</p>
 <p style="text-align: justify">Complément de lecture :<br>
 Bauman, Syd, and Julia Flanders. 2018. <a href="https://wwp.northeastern.edu/outreach/seminars/uvic_advanced_2016/presentations/basic_odd/basic_odd_simple_00.xhtml" target="_blank">Introduction to Writing ODDs</a><br>
-Bauman, Syd, and Julia Flanders. 2010. <a href=https://wwp.northeastern.edu/outreach/seminars/uvic_advanced_2016/handouts/elementList_odd.xhtml" target="_blank"><i>Element list for ODD</i></a>.</p>
+Bauman, Syd, and Julia Flanders. 2010. <a href=https://wwp.northeastern.edu/outreach/seminars/uvic_advanced_2016/handouts/elementList_odd.xhtml" target="_blank"><i>Element list for ODD</i></a>.<br>
+Lüngen, Harald  et C. M. Sperberg-McQueen, 2012. « A TEI P5 Document Grammar for the IDS Text Model », Journal of the Text Encoding Initiative [Online], Issue 3. URL : http://journals.openedition.org/jtei/508 ; DOI : 10.4000/jtei.508</p>
 </p>
 
 <p style="font-size:11px; background-color: #708090; width: 100px; padding: 5px;"><b><a href="#tei_sommaire" style="color: white">Sommaire &#8682;</a></b></p>
@@ -635,7 +636,10 @@ Bauman, Syd, and Julia Flanders. 2010. <a href=https://wwp.northeastern.edu/outr
 
 <hr style="border-style: dotted; border-color: #D3D3D3; margin-top: 50px; width: 250px;  margin-left: 0px" />
 <p style="text-align: justify">Complément de lecture :<br>
-Gerhard Budin, Stefan Majewski and Karlheinz Mörth, « Creating Lexical Resources in TEI P5 », <i>Journal of the Text Encoding Initiative</i> [Online], Issue 3 | November 2012. URL : <a href="https://journals.openedition.org/jtei/522" target="_blank">http://journals.openedition.org/jtei/522</a> ; DOI : 10.4000/jtei.522.</p>
+Bowers, Jack  et Laurent Romary. 2016. « Deep Encoding of Etymological Information in TEI », Journal of the Text Encoding Initiative [Online], Issue 10. URL : http://journals.openedition.org/jtei/1643 ; DOI : 10.4000/jtei.1643.<br>
+Budin, Gerhard, Stefan Majewski et Karlheinz Mörth. 2012. « Creating Lexical Resources in TEI P5 », <i>Journal of the Text Encoding Initiative</i> [Online], Issue 3. URL : <a href="https://journals.openedition.org/jtei/522" target="_blank">http://journals.openedition.org/jtei/522</a> ; DOI : 10.4000/jtei.522.<br>
+Mörth, Karlheinz, Laurent Romary, Gerhard Budin et Daniel Schopper. 2015 « Modeling Frequency Data: Methodological Considerations on the Relationship between Dictionaries and Corpora », Journal of the Text Encoding Initiative [Online], Issue 8. URL : http://journals.openedition.org/jtei/1356 ; DOI : 10.4000/jtei.1356.<br>
+Romary, Laurant. 2004. <a href="https://www.tei-c.org/Vault/MembersMeetings/2004-info/romary.pdf" target="_blank"><i>Iso and the TEI. When standards speak to standards</i></a></p>
 <br>
 
 <p style="text-align: justify"><a id="4" style="color: #808080; text-align: justify">[4]</a> cet <code>element</code> a été retenu d'une part pour plus de flexibilité par rapport à <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-entry.html" target="_blank"><code>entry</code></a> qui suit un schéma défini, mais surtout parce qu'il autorise <a href="https://journals.openedition.org/jtei/522#ftn17" target="_blank">30 <code>&lt;element&gt;</code>s</a> en comparaison avec <code>&lt;entry&gt;</code> qui n'en autorise que 10. <a href="#4-back"><b>&#8613;</b></p>
