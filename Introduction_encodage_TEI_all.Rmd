@@ -211,7 +211,7 @@ Il existe 261 <code>&#64;attribut</code>s. Un élément a généralement un <cod
 <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/CE.html" target="_blank">Certainty, precision, and responsability</a> [certainty] :<br>
 &#8594; <code>certainty</code> | <code>precision</code> | <code>respons</code></li>
 <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/CO.html" target="_blank">Elements common to all TEI documents</a> [core] :<br>
-&#8594; <code>abbr</code> | <code>add</code> | <code>addrLine</code> | <code>address</code> | <code>analytic</code> | <code>author</code> | <code>bibl</code> | <code>biblScope</code> | <code>biblStruct</code> | <code>binaryObject</code> | <code>cb</code> | <code>choice</code> | <code>cit</code> | <code>citedRange</code> | <code>corr</code> | <code>date</code> | <code>del</code> | <code>desc</code> | <code>distinct</code> | <code>divGen</code> | <code>editor</code> | <code>email</code> | <code>emph</code> | <code>expan</code> | <code>foreign</code> | <code>gap</code> | <code>gb</code> | <code>gloss</code> | <code>graphic</code> | <code>head</code> | <code>headItem</code> | <code>headLabel</code> | <code>hi</code> | <code>imprint</code> | <code>index</code> | <code>item</code> | <code>l</code> | <code>label</code> | <code>lb</code> | <code>lg</code> | <code>list</code> | <code>listBibl</code> | <code>measure</code> | <code>measureGrp</code> | <code>media</code> | <code>meeting</code> | <code>mentioned</code> | <code>milestone</code> | <code>monogr</code> | <code>name</code> | <code>note</code> | <code>num</code> | <code>orig</code> | <code>p</code> | <code>pb</code> | <code>postBox</code> | <code>postCode</code> | <code>ptr</code> | <code>pubPlace</code> | <code>publisher</code> | <code>q</code> | <code>quote</code> | <a href="#tei_ref" id="tei_ref-back"><code>ref</code></a> | <code>reg</code> | <code>relatedItem</code> | <code>resp</code> | <code>respStmt</code> | <code>rs</code> | <code>said</code> | <code>series</code> | <code>sic</code> | <code>soCalled</code> | <code>sp</code> | <code>speaker</code> | <code>stage</code> | <code>street</code> | <code>teiCorpus</code> | <code>term</code> | <code>textLang</code> | <code>time</code> | <code>title</code> | <code>unclear</code> | <code>unit</code></li>
+&#8594; <code>abbr</code> | <code>add</code> | <code>addrLine</code> | <code>address</code> | <code>analytic</code> | <code>author</code> | <code>bibl</code> | <code>biblScope</code> | <code>biblStruct</code> | <code>binaryObject</code> | <code>cb</code> | <code>choice</code> | <a href="#tei_cit" id="tei_cit-back"><code>cit</code></a> | <code>citedRange</code> | <code>corr</code> | <code>date</code> | <code>del</code> | <code>desc</code> | <code>distinct</code> | <code>divGen</code> | <code>editor</code> | <code>email</code> | <code>emph</code> | <code>expan</code> | <code>foreign</code> | <code>gap</code> | <code>gb</code> | <code>gloss</code> | <code>graphic</code> | <code>head</code> | <code>headItem</code> | <code>headLabel</code> | <code>hi</code> | <code>imprint</code> | <code>index</code> | <code>item</code> | <code>l</code> | <code>label</code> | <code>lb</code> | <code>lg</code> | <code>list</code> | <code>listBibl</code> | <code>measure</code> | <code>measureGrp</code> | <code>media</code> | <code>meeting</code> | <code>mentioned</code> | <code>milestone</code> | <code>monogr</code> | <code>name</code> | <code>note</code> | <code>num</code> | <code>orig</code> | <code>p</code> | <code>pb</code> | <code>postBox</code> | <code>postCode</code> | <code>ptr</code> | <code>pubPlace</code> | <code>publisher</code> | <code>q</code> | <a href="#tei_quote" id="tei_quote-back"><code>quote</code></a> | <a href="#tei_ref" id="tei_ref-back"><code>ref</code></a> | <code>reg</code> | <code>relatedItem</code> | <code>resp</code> | <code>respStmt</code> | <code>rs</code> | <code>said</code> | <code>series</code> | <code>sic</code> | <code>soCalled</code> | <code>sp</code> | <code>speaker</code> | <code>stage</code> | <code>street</code> | <code>teiCorpus</code> | <code>term</code> | <code>textLang</code> | <code>time</code> | <code>title</code> | <code>unclear</code> | <code>unit</code></li>
 <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/CC.html" target="_blank">Corpus texts</a> [corpus] :<br>
 &#8594; <code>activity</code> | <code>channel</code> | <code>constitution</code> | <code>derivation</code> | <code>domain</code> | <code>factuality</code> | <code>interaction</code> | <code>locale</code> | <code>particDesc</code> | <code>preparedness</code> | <code>purpose</code> | <code>setting</code> | <code>settingDesc</code> | <code>textDesc</code></li>
 <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/DI.html" target="_blank">Dictionaries</a> [dictionaries] :<br>
@@ -499,38 +499,106 @@ Bauman, Syd, and Julia Flanders. 2010. <a href=https://wwp.northeastern.edu/outr
 <h4 style="font-size: 12px">Exemple d'une entrée pour un lemme de type substantif : </h4>
 
 ```{xml}
-<entryFree n="1" xml:id="pays-subst-01">
-    <form type="lemma">
-        <w lemma="pays">
-           <w n="1" type="baseform" xml:id="pays-subst-baseF">
-              <m>pays</m>
-           </w>
-           <w n="2" type="inflected" sameAs="#pays-subst-baseF" />
-        </w>
-    </form>
-    <gramGrp>
-       <gram value="subst"/>
-       <gen value="m"/>       
-     </gramGrp>
-     <sense n="1" xml:id="pays-syn-01">
-       <def><!-- texte de la définition sense 1 --></def>
-       <xr type="syn">
-          <lbl>Syn. de</lbl>
-          <!-- dans le cas où ce lemme a été ajouté au dictionnaire -->
-          <ref n="1" target="#terre-sense03">terre</ref>
-       </xr>
-     </sense>
-     <sense n="2" xml:id="pays-syn-02">
-       <def><!-- texte de la définition sense 2 --></def>
-       <xr type="syn">
-          <lbl>Syn. de</lbl>
-          <!-- dans le cas où ces deux lemmes ont été ajoutés au dictionnaire -->
-          <ref n="1" target="#endroit-sense02">endroit</ref>
-          <ref n="2" target="#lieu-sense01">lieu</ref>
-       </xr>
-     </sense>
+<!-- Toutes les définitions ci-dessous sont empruntées au CNRTL en ligne https://www.cnrtl.fr -->
+<entryFree n="1" xml:id="pays-subst">
+   <form type="lemma" xml:id="pays-baseF">
+      <orth>pays</orth>
+      <gramGrp>
+        <gram type="pos" value="subst"/>
+        <gen value="m"/>      
+      </gramGrp>
+   </form>
+   <form type="inflected">
+      <orth sameAs="#pays-baseF"/>
+   </form>
+   <sense n="1" xml:id="pays-syn-01">
+      <def><!-- texte de la définition sense 1 --></def>
+      <cit type="example">
+        <quote><!-- texte de la citation --></quote>
+        <bibl>
+           <author n="1">
+              <name>Dupont</name>
+           </author>
+        </bibl>
+      </cit>
+      <xr type="syn">
+        <lbl>Syn. de</lbl>
+        <!-- dans le cas où ce lemme a été ajouté au dictionnaire -->
+        <ref n="1" target="#terre-sense03">terre</ref>
+      </xr>
+    </sense>
+    <sense n="2" xml:id="pays-syn-02">
+      <def><!-- texte de la définition sense 2 --></def>
+      <xr type="syn">
+        <lbl>Syn. de</lbl>
+        <!-- dans le cas où ces deux lemmes ont été ajoutés au dictionnaire -->
+        <ref n="1" target="#endroit-sense02">endroit</ref>
+        <ref n="2" target="#lieu-sense01">lieu</ref>
+      </xr>
+    </sense>
 </entryFree>
 ```
+
+<br>
+<h4 style="font-size: 12px">Exemple d'une entrée pour un lemme de type adverbe : </h4>
+
+```{xml}
+<entryFree n="2" xml:id="lgtps-adv">
+   <form type="lemma" xml:id="lgtps-adv-orth">
+      <orth>longtemps</orth>
+      <gram type="pos" value="adv"/>
+   </form>
+   <sense n="1" xml:id="lgtps-syn-01">
+      <def><!-- texte de la définition sense 1 --></def>
+      <xr type="syn">
+        <lbl>Syn. de</lbl>
+        <!-- dans le cas où ce lemme a été ajouté au dictionnaire -->
+        <ref n="1" target="#longuement-sense01">longuement</ref>
+      </xr>
+   </sense>        
+</entryFree>
+```
+
+<br>
+<h4 style="font-size: 12px">Exemple d'une entrée pour un lemme de type adjectif : </h4>
+
+```{xml}
+
+```
+
+<br>
+<h4 style="font-size: 12px">Exemple d'une entrée pour un lemme de type verbe : </h4>
+
+```{xml}
+<entryFree n="4" xml:id="partir-verb">
+   <form type="lemma" xml:id="partir-baseF">
+       <orth>partir</orth>
+       <gramGrp>
+          <gram type="pos" value="verb"/>
+          <mood value="inf"/>
+          <subc value="intrans"/>
+       </gramGrp>
+    </form>
+    <sense n="1" xml:id="partir-syn-01">
+       <def>
+         <ref target="#se-mettre-sense02">Se mettre</ref> en mouvement, <ref target="#quitter-sense01">quitter</ref> un lieu (pour une destination)
+       </def>
+       <cit type="example">
+           <quote>Quand ils agonisent (...) ils vous disent: −Adieu! au revoir, je pars pour un monde meilleur, nous nous retrouverons là-haut!</quote>
+           <bibl>
+              <author n="1"><name>Borel</name></author>
+              <date>1833</date>
+              <biblScope unit="p">239</biblScope>
+           </bibl>
+        </cit>
+        <xr type="syn">
+          <lbl>Syn. de</lbl>
+          <!-- dans le cas où ce lemme a été ajouté au dictionnaire -->
+          <ref n="1" target="#quitter-sense01">quitter</ref>
+        </xr>
+    </sense>  
+</entryFree>
+```         
 <br>
 <h4 style="font-size: 12px">Liste des <code>&lt;element&gt;</code>s pour la dictionnaire membre des modules <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/DI.html">[dictionaries]</a>, <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/AI.html" target="_blank">[analysis]</a> et <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/CO.html" target="blank">[core]</a> et entre paranthèse les modèles de classes &mdash; classement hiérarchique (la descendance est indiquée par “/” et les <code>&lt;element&gt;</code>s de même niveau par “||”) :</h4>
 
@@ -538,7 +606,7 @@ Bauman, Syd, and Julia Flanders. 2010. <a href=https://wwp.northeastern.edu/outr
   <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-entryFree.html" target="_blank" id="tei_entryFree"><code>entryFree</code></a><a href="#4" id="4-back"><sup style="font-size: 10px">4</sup></a> <a href="#tei_entryFree-back"><b>&#8613;</b> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.entryLike.html" target="_blank">model.entryLike</a>) :  
   <p style="text-align: justify">&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-form.html" target="_blank"><code>form</code></a> <a href="#tei_form-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.formPart.html" target="_blank">model.formPart</a>) / <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-w.html" target="_blank" id="tei_w"><code>w</code> <a href="#tei_w-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.segLike.html" target="_blank">model.segLike</a>) / <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-m.html" target="_blank" id="tei_m"><code>m</code></a> <a href="#tei_m-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.segLike.html" target="_blank">model.segLike</a>)<br>
   &#8702;  <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-gramGrp.html" target="_blank" id="tei_gramGrp"><code>gramGrp</code></a> <a href="#tei_gramGrp-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.entryPart.html" target="_blank">model.entryPart</a>) / <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-gram.html" target="_blank" id="tei_gram"><code>gram</code></a> <a href="#tei_gram-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.morphLike.html" target="_blank">model.morphLike</a>) ||<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-gen.html" target="_blank" id="tei_gen"><code>gen</code></a> <a href="#tei_gen-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.morphLike.html" target="_blank">model.morphLike</a>) <br>
-  &#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-sense.html" target="_blank"><code>sense</code></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.entryPart.html" target="_blank">model.entryPart</a>) / <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-def.html" target="_blank"><code>def</code></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.entryPart.html" target="_blank">model.entryPart</a>) || <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-xr.html" target="_blank" id="tei_xr"><code>xr</code></a> <a href="#tei_xr-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.entryPart.html" target="_blank">model.entryPart</a>) / <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-lbl.html" target="_blank" id="tei_lbl">lbl</a> <a href="#tei_lbl-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.entryPart.top.html" target="_blank">model.entryPart.top</a>) || <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-ref.html" target="_blank" id="tei_ref"><code>ref</code></a> <a href="#tei_ref-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.ptrLike.html" target="_blank">model.ptrLike</a>) </p>
+  &#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-sense.html" target="_blank"><code>sense</code></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.entryPart.html" target="_blank">model.entryPart</a>) / <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-def.html" target="_blank" id="tei_def"><code>def</code></a> <a href="#tei_def-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.entryPart.html" target="_blank">model.entryPart</a>) || <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-cit.html" target="_blank" id="tei_cit"><code>cit</code></a> <a href="#tei_cit-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-model.entryPart.top.html" target="_blank">model.entryPart.top</a>) / <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-quote.html" target="_blank" id="tei_quote"><code>quote</code></a> <a href="#tei_quote-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-model.quoteLike.html" target="_blank">model.quoteLike</a>) || <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-xr.html" target="_blank" id="tei_xr"><code>xr</code></a> <a href="#tei_xr-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.entryPart.html" target="_blank">model.entryPart</a>) / <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-lbl.html" target="_blank" id="tei_lbl">lbl</a> <a href="#tei_lbl-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.entryPart.top.html" target="_blank">model.entryPart.top</a>) || <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-ref.html" target="_blank" id="tei_ref"><code>ref</code></a> <a href="#tei_ref-back"><b>&#8613;</b></a> (<a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.ptrLike.html" target="_blank">model.ptrLike</a>) </p>
   </li>
 </ul>
 
