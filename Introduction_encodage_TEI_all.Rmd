@@ -70,9 +70,16 @@ library(htmltools)
 
 <h3 style="font-size: 16px">Séance du 22 mai 2019 (5)</h3>
 <ul style="list-style-type:upper-roman; text-align: justify; font-size: 14px">
-<li>Module [namesdates] pour les noms, dates, personnes et lieux géographiques</li>
-<li>Schéma d’entête <teiHeader></li>
-<li>Citations et références bibliographiques</li>
+<li><a href="#tei_schemaTeiHeader">Schéma d’entête <code>&lt;teiHeader&gt;</code></a></li>
+<li><a href="#tei_bib">Citations et références bibliographiques</a></li>
+<li><a href="#carteHeuristique_corpus">Carte heuristique pour l'encodage d'un manuscrit (préparation du point 3 de la séance du 26 mai)</a></li>
+</ul>
+
+<h3 style="font-size: 16px">Séance (en ligne) du 26 mai 2019 (6)</h3>
+<ul style="list-style-type:upper-roman; text-align: justify; font-size: 14px">
+<li><a href="#tei_modNamesdates">Module [namesdates] pour les noms, dates, personnes et lieux géographiques</a></li>
+<li><a href="#tei_relationNœuds"><code>&#64;attribut</code>s pour créer une relation entre deux ou plusieurs nœuds</a></li>
+<li><a href="#tei_teiCorpus">Encodage pour un corpus : <code>&lt;teiCorpus&gt;</code> du module [core] et <i>primary source</i></a></li>
 </ul>
 
 <hr style="height: 1px; border: 0; color: black; background-color: black;">
@@ -745,5 +752,210 @@ Romary, Laurant. 2004. <a href="https://www.tei-c.org/Vault/MembersMeetings/2004
 <hr style="padding-top: 20px; padding-bottom: 10px">
 <h2 style="font-size: 20px; color: #808080;"><a id="tei_modLinking" style="color: #808080">4.II. Module [linking] pour les liens hypertextuels</a></h2>
 
+
+<hr style="padding-top: 20px; padding-bottom: 10px">
+<h2 style="font-size: 20px; color: #808080;"><a id="tei_schemaTeiHeader" style="color: #808080">5.I. Schéma d’entête <code>&lt;teiHeader&gt;</code></a></h2>
+
+<p>Chapitre du TEI guidelines : <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/HD.html" target="_blank">The TEI Header</a><br>
+Notez que cet élément est <b>obligatoire</b>.</p>
+
+<h3 style="font-size: 16px">Pertinence :</h3>
+<ul>
+<li>Notice de cataloguage</li>
+<li>référence bibliographique destinée à un fichier électronique</li>
+</ul>
+
+<h3 style="font-size: 16px"><code>&lt;element&gt;</code>s contenus dans le <code>teiHeader</code> </h3>
+
+<p style="text-align: justify">&#8702; 7 <code>&lt;element&gt;</code>s : <code>editionStmt</code> | <code>extent</code> | <code>notesStmt</code> | <code>publicationStmt</code> | <code>seriesStmt</code> | <code>sourceDesc</code> | <code>titleStmt</code></p>
+
+<ul>
+<li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-editionStmt.html" target="_blank"><code>editionStmt</code></a> : informations sur l'édition du matériel</li>
+<li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-extent.html" target="_blank"><code>extent</code></a> : description de la taille approximative (pages, mots...) a</li>
+<li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-notesStmt.html" target="_blank"><code>notesStmt</code></a> : notes diverses mais pertinentes sur le matériel étudié</li>
+<li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-publicationStmt.html" target="_blank"><code>publicationStmt</code></a> : informations concernant la publication et/ou la diffusion</li>
+<li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-seriesStmt.html" target="_blank"><code>seriesStmt</code></a> : information sur la collection dans le cas où elle existe</li>
+<li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-sourceDesc.html" target="_blank"><code>sourceDesc</code></a> : description de la source dans le cadre d'un format électronique</li>
+<li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-titleStmt.html" target="_blank"><code>titleStmt</code></a> : titre du l'œuvre et son/ses responsable(s) et/ou institution(s)</li>
+</ul>
+<br>
+
+<h4 style="font-size: 14px">Carte heuristique d'un schéma <code>teiHeader</code></h4>
+<br>
+<img src ="Introduction_encodage_TEI-figure/schema_teiHeader.png" width="70%" />
+<br><br>
+<h4 style="font-size: 14px">Déclaration de classification : &lt;taxonomy&gt;</h4>
+<p><a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/HD.html#HD55" target="_blank">Guidelines TEI</a></p>
+<br>
+<p>Sa carte heuristique :<br><br>
+<img src ="Introduction_encodage_TEI-figure/tei_carteHeuristique_taxo.png" width="70%" />
+</p>
+<br>
+<h4 style="font-size: 14px">Exemple et tutoriel</h4>
+<br>
+<p><a href="https://vbigot-juloux.github.io/hermeneutics-of-action/UserManual/out/webhelp/index.html#categories.html" target="_blank">taxonomie analytique</a> dans le cadre d'une hermeneutique de l'action</p>
+<br>
+
+
+<hr style="padding-top: 20px; padding-bottom: 10px">
+<h2 style="font-size: 20px; color: #808080;"><a id="tei_bib" style="color: #808080">5.II. Citations et références bibliographiques</a></h2>
+
+<p>Information dans les <a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/CO.html#COBI" target="_blank">TEI guidelines.</a></p>
+
+<h3 style="font-size: 16px">5 <code>&lt;element&gt;</code>s principaux appartenant au <a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.biblLike.html" target="_blank">model.biblLike</a></h3>
+<p style="text-align: justify">Regroupe des <code>&lt;element&gt;</code>s contenant des informations relatives aux descriptions bibliographiques : <a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-bibl.html" target="_blank"><code>bibl</code></a> | <a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-biblFull.html" target="_blank"><code>biblFull</code></a> | <a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-biblStruct.html" target="_blank"><code>biblStruc</code></a> | <a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-listBibl.html" target="_blank"><code>listBibl</code></a> | <a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-msDesc.html" target="_blank"><code>msDesc</code></a> </p>
+
+<ul>
+<li><code>bibl</code> (module [core]) : citation bibliographique </li>
+<li><code>biblFull</code> (module [header]) : citation bibligraphique structurée complète</li>
+<li><code>biblStruct</code> (module [core]) : citation bibligraphique structurée</li>
+<li><code>listBibl</code> (module [core]) : liste de citations bibliographiques</li>
+<li><code>msDesc</code> (module [msdescription]) : description du manuscrit [<a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/MS.html#msov" target="_blank">1<a/>]</li>
+</ul>
+
+<h4 style="font-size: 14px">&#8702; <u>Carte heuristique</u> :</h4>
+
+<img src ="Introduction_encodage_TEI-figure/tei_biblio.png" width="60%" />
+<br><br>
+<p style="text-align: justify">A lire: <a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/CO.html#COBITY" target="_blank">Méthodes d'encodage pour les références bibliographiques et les listes de références</a></p>
+
+<h4 style="font-size: 14px">&#8702; <a id="tei_biblio_ex" style="color: #808080"><u>Exemple</u></a> :</h4>
+
+<img src ="Introduction_encodage_TEI-figure/tei_biblio_ex.png" width="90%" />
+<br><br>
+<p style="text-align: justify">Dans l'exemple ci-dessus, <code>&#64;sortKey</code> (classe <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.sortable.html" target="_blank">att.sortable</a>) permettra de classer les références (sous réserve de la transformation dans <code>XSLT</code> en indiquant le chemin <code>XPath</code>). Voir une brève introduction <a href="#xslt_intro">ci-dessous</a> pour première immersion en <code>XSLT</code> &mdash; Peter Stokes reviendra plus en détails sur chacune des fonctions.</p>
+
+
+
+<hr style="padding-top: 20px; padding-bottom: 10px">
+<h2 style="font-size: 20px; color: #808080;"><a id="carteHeuristique_corpus" style="color: #808080">5.III. Carte heuristique pour l'encodage d'un manuscrit</a></h2>
+
+<h3 style="font-size: 16px;">Vue générale</h3>
+<img src ="Introduction_encodage_TEI-figure/carteHeuristique_manuscrits.png" width="60%" />
+<br><br>
+<h4 style="font-size: 14px;">Données physiques</h3>
+<img src ="Introduction_encodage_TEI-figure/carteHeuristique_manuscrits_2.png" width="60%" />
+<br><br>
+<h4 style="font-size: 14px;">Données intellectuelles</h3>
+<img src ="Introduction_encodage_TEI-figure/carteHeuristique_manuscrits_3.png" width="90%" />
+<br><br>
+<hr style="padding-top: 20px; padding-bottom: 10px">
+<h2 style="font-size: 20px; color: #808080;"><a id="tei_modNamesdates" style="color: #808080">6.I. Module [namesdates] pour les noms, dates, personnes et lieux géographiques</a></h2>
+
+
+<hr style="padding-top: 20px; padding-bottom: 10px">
+<h2 style="font-size: 20px; color: #808080;"><a id="tei_relationsNœuds" style="color: #808080">6.II. <code>&#64;attribut</code>s pour créer une relation entre deux ou plusieurs nœuds </h2>
+
+
+<hr style="padding-top: 20px; padding-bottom: 10px">
+<h2 style="font-size: 20px; color: #808080;"><a id="tei_teiCorpus" style="color: #808080">6.III. Encodage pour un corpus : <code>&lt;teiCorpus&gt;</code> du module [core] et <i>primary source</i></a> </h2>
+
+<p><code>&lt;teiCorpus&gt;</code> peut contenir les <code>&lt;element&gt;</code>s : <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teiCorpus.html" target="_blank"><code>teiCorpus</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teiHeader.html" target="_blank"><code>teiHeader</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-fsdDecl.html" target="_blank"><code>fsdDecl</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-TEI.html" target="_blank"><code>TEI</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-text.html" target="_blank"><code>text</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-facsimile.html" target="_blank"><code>facsimile</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-sourceDoc.html" target="_blank"><code>sourceDoc</code></a></p>
+
+<ul>
+<li><code>teiCorpus</code> : </li>
+<li><code>teiHeader</code> : </li>
+<li><code>fsdDecl</code> : déclaration de système de traits relatives à une <i>structure de traits</i> (paire trait-valeur)</li>
+<li><code>TEI</code> : comprend obligatoirement un <code>&lt;teiHeader&gt;</code> et un texte</li>
+<li><code>text</code> : un texte de manière isolée sans <code>&lt;teiHeader&gt;</code></li>
+<li><code>facsimile</code> : représentation d'une image d'une source écrite transcrite &mdash; relative au <i>Primary Source</i></li>
+<li><code>sourceDoc</code> :une transcription ou une représentation d'une seule source &mdash; ou une collection de sources relative au <i>Primary Source</i></li>
+</ul>
+
+<hr style="padding-top: 20px; padding-bottom: 10px">
+<h2 style="font-size: 20px; color: #808080;"><a id="xslt_intro" style="color: #808080">8.III. Brève introduction à <code>XSLT</code></a> </h2>
+<p style="text-align: justify"><code>XSLT</code> est un langage <code>XML</code>, de ce fait il doit respecter le même schéma sémantique. Un fichier <code>XSLT</code> fait <u>automatiquement référence à un document <code>XML</code> ou <code>TEI</code></u> ; un certain nombre d'instructions sera écrite selon des normes d'encodage rigoureuses (ou des règles sémantiques).</p>
+
+<h3 style="font-size: 16px;"> <code>XSL</code> <i>vs</i> <code>XSLT</code></h3>
+<p style="text-align: justify"><code>XSL</code> comprend deux sous-ensembles de transformation eXtensible Stylesheet Language Transformation (abr. “XSLT”) et <a href="https://fr.wikibooks.org/wiki/Programmation_XML/XSL-FO" target="_blank">eXtensible Stylesheet Language Formatting Objects</a> (abr. “XSL-FO”). <code>XSLT</code> permet de transformer un fichier <code>XML</code> ou <code>TEI</code></u> grâce aux instructions transmises en <code>XSL</code>. Cette transformation permettra d'afficher les données encodées ciblées du fichier <code>TEI</code> (ou <code>XML</code>) &mdash; on parle de “moteur” ou de “<i>processor</i>” XSLT ; tandis que l'encodage <code>XSL-FO</code> permet de générer un format de sortie d'un document (PDF par exemple) &mdash; qui ne peut être affiché dans un navigateur. Cependant, aujourd'hui <code>XSL-FO</code> est formellement nommé appelé <code>XSL</code>. <br>
+<img src ="Introduction_encodage_TEI-figure/xslt_fo.png" width="90%" /><br><br>
+<span style="font-size: 10px">Source <a href="https://stackoverflow.com/users/1697099/premraj" target="_blank">Premraj</a> dans la conversation <a href="https://stackoverflow.com/questions/740404/whats-the-difference-between-xslt-and-xsl-fo">What's the difference between XSLT and XSL-FO?</a></span></p>
+<br>
+<p>La syntaxe varie aussi pour donner les instructions :<br>
+&#8702; de transformation avec <code>XSLT</code> : <code>xsl:ELEMENT</code><br>
+&#8702; de formattage avec <code>XSL-FO</code> : <code>fo:INSTRUCTION</code><br>
+&#8702; exemple :</p>
+```{xml}
+<!-- Exemple emprunté http://w3schools.sinsixx.com/xslfo/xslfo_xslt.asp.htm -->
+<!-- Instruction de formatage d'un document XML ou TEI en utilisant dans l'exemple ci-dessous une syntaxe identique à CSS -->
+<!-- Voir également http://w3schools.sinsixx.com/xslfo/xslfo_blocks.asp.htm -->
+<fo:block
+    font-size="14pt" font-family="verdana" color="red"
+    space-before="5mm" space-after="5mm">
+    <!-- element “apply-templates”, on selectionne tous les nœuds XML/TEI dans l'ordre -->
+    <xsl:apply-templates/>
+</fo:block>
+```
+<br>
+<p>Pour les styles, voir également la discussion <a href="https://stackoverflow.com/questions/17495152/using-external-css-in-xsl-fo" target="_blank">Using external CSS in XSL-FO</a>.</p>
+<h3 style="font-size: 16px;"> Instructions <code>XSLT</code></h3>
+<p style="text-align: justify">A la suite de l'exemple pour <a href="#tei_biblio_ex">les références bibliographiques</a>, voici un exemple d'encodage <code>XSLT</code>.</code>
+<p>D'abord le titre de la section dans laquelle les références bibliographiques s'afficheront :
+```{xml}
+<!-- syntaxe HTML -->
+<h2>Linguistics - philology</h2>
+<!-- syntaxe XSLT -->
+<xsl:apply-templates select="listBibl[@sortKey='linguistics']/bibl">
+    <xsl:sort select="author[1]//surname" data-type="text" order="ascending"/>
+</xsl:apply-templates>
+```
+<br>
+<p style="text-align: justify"><code>&lt;xsl:element&gt;</code>s <code>XSL</code> : <a href="http://xmlfr.org/w3c/TR/xslt/#element-apply-templates" target="_blank"><code>apply-template</code></a> | <a href="http://xmlfr.org/w3c/TR/xslt/#element-sort" target="_blank"><code>sort</code></a></p>
+<p style="text-align: justify">Attributs : <code>select</code> | <code>data-type</code></p>
+&#8702; Sélection du <code>XPath</code> de la catégorie à afficher : <code>&lt;listBibl/bibl&gt;</code> dont le <code>&#64;sortKey</code> est “linguistics” dans le doc <code>TEI</code>.<br>
+&#8702; La première information bibliographique commence par le nom de famille de l'auteur, par ordre alphabétique croissant.</p>
+<p>Puis la sélection de chaque type de références. Il est indispensable de donner le chemin pour chaque descendant de <code>&lt;bibl&gt;</code> de sorte que toutes les informations relatives aux références soient affichées :</p>
+```{xml}
+<!-- aperçu partiel de l'encodage, voir le fichier complet sur GitHub -->
+<xsl:template match="listBibl[@sortKey]/bibl">
+    <xsl:variable name="referenced-bibl" select="key('bibl', @xml:id)"/>
+    <xsl:variable name="bibl" select="$referenced-bibl/string-join(@xml:id, '')"/>
+    <xsl:variable name="bibl-author1" as="xs:string*" select="$referenced-bibl/string-join(author[@n='1']/persName/concat(surname, ', ', forename))"/>
+    <xsl:variable name="bibl-author2" as="xs:string*" select="$referenced-bibl/string-join((author[@n='2']/persName/concat(forename, ', ', surname), ''))"/>
+    <xsl:variable name="bibl-author3" as="xs:string*" select="$referenced-bibl/string-join((author[@n='3']/persName/concat(forename, ', ', surname), ''))"/>
+    <xsl:variable name="bibl-date" as="xs:string*" select="$referenced-bibl/string-join((date[1], '. '), '')"/>
+    <xsl:variable name="bibl-article" as="xs:string*" select="$referenced-bibl/string-join(title[@level='a'], '')"/>
+    <xsl:variable name="bibl-journal" as="xs:string*" select="$referenced-bibl/string-join(title[@level='j'], '')"/>
+    <xsl:variable name="bibl-book-m" as="xs:string*" select="$referenced-bibl/string-join(title[@level='m'],'')"/>
+    <xsl:variable name="bibl-book-s" as="xs:string*" select="$referenced-bibl/string-join(title[@level='s'],'')"/>
+    <xsl:variable name="bibl-editor" as="xs:string*" select="$referenced-bibl/string-join(descendant-or-self::bibl[@xml:id]/editor[@n]/persName/concat(substring(forename, 1, 1), '. ', surname), ', ')"/>
+    <xsl:variable name="bibl-biblScope-page" as="xs:string*" select="$referenced-bibl/string-join(biblScope[@unit='page'], '')"/>
+    <xsl:variable name="bibl-biblScope-pp" as="xs:string*" select="$referenced-bibl/string-join(biblScope[@unit='pp'], '')"/>
+    <xsl:variable name="bibl-biblScope-issue" as="xs:string*" select="$referenced-bibl/string-join(biblScope[@unit='issue'], '.')"/>
+    <xsl:variable name="bibl-publisher" as="xs:string*" select="$referenced-bibl/string-join((publisher, '. '), '')"/>
+    <xsl:variable name="bibl-idno" as="xs:string*" select="$referenced-bibl/string-join((idno, '.'), '')"/>
+    <xsl:variable name="bibl-h-ref" as="xs:string*" select="$referenced-bibl/string-join(child::ref/@target, ', ')"/>
+    <xsl:variable name="bibl-ref-date" as="xs:string*" select="$referenced-bibl/string-join(date[@when], '. ')"/>
+```
+<br>
+<h4 style="font-size: 14px;"> Sélection du contenu à afficher</h3>
+<p>Généralement, on affiche que partiellement le contenu des données saisies dans un document <code>TEI</code>. Des règles sémantiques seront alors utilisées.</p>
+<ul>
+<li>Extraction de la valeur d'un nœud, <code>xsl:value-of</code> + l'attribut <code>select="VALEUR"</code></li>
+<li>Filtres, exemple <code>xsl:for-each</code></li>
+<li>Conditions, exemple <code>xsl:if</code></li>
+</ul>
+<p style="text-align: justify"><code>&lt;xsl:element&gt;</code>s <code>XSL</code> : <a href="http://xmlfr.org/w3c/TR/xslt/#element-template" target="_blank"><code>template</code></a> | <a href="http://xmlfr.org/w3c/TR/xslt/#varparam" target="_blank"><code>variable</code></a></p>
+<br>
+<p style="text-align: justify">Note : Depuis <code>XPath 2.0</code>, <code>&lt;XSLT&gt;</code> peut contenir des fonctions (communes à <code>XSLT 2.0</code> et <code>xQuery 1.0</code>) <code>fn:NOM DE LA FONCTION</code> &mdash; voir la dernière mise à jour des fonctions “<a hre="https://www.w3.org/TR/xpath-functions-31/#func-overloading" target="_blank">XPath and XQuery Functions and Operators 3.1</a>” :<br>
+accesseur | erreur et Trace | numérique | chaîne | anyURI | boolean | durée, Date, Heure | QName | nœud | séquence | contexte &mdash; <a href="#xpath_fn">source en français</a>.</p>
+<p>Conventionnellement, dans un document de transformation <code>XSL</code>, l'expression <code>fn:</code> n'est pas nécessaire.</p>
+<p>Affichage dans un navigateur :</p>
+<img src ="Introduction_encodage_TEI-figure/tei_biblio_exDisplay.png" width="90%" />
+
+
+
+<h4 style="font-size: 14px">Liens utiles</h4>
+<ul>
+<li><a href="http://xsltfiddle.liberty-development.net" target="_blank">Fiddle</a></li>
+<li><a href="https://www.w3schools.com/XML/xsl_elementref.asp" target="_blank">Liste des <code>element</code>s</a></li>
+<li>Liste des fonctions <code>fn: prefixe</code> <a href="https://www.w3schools.com/XML/xsl_functions.asp" target="_blank">en anglais</a>, et <a href="http://www.w3bai.com/fr/xsl/xsl_functions.html" target="_blank" id="xpath_fn">en français</a></li>
+<li><a href="http://www.w3big.com/fr/schema/default.html" target="_blank">Tutoriel en français</a></li>
+<li><a href="https://stackoverflow.com/questions/tagged/xslt" target="_blank">Support dans Stackoverflow</a></li>
+<li><a href="https://www.xml.com/pub/a/2003/06/04/tr.html" target="_blank">Expressions régulières utilisées dans <code>XSLT</code></a></li>
+</ul>
+
 <hr style="height: 1px; border: 0; color: black; background-color: black;">
 <span style="font-size: 14px; color: #708090">Vanessa Bigot Juloux (EPHE-PSL, Andrews University)</span>
+
+
