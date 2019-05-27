@@ -43,6 +43,7 @@ library(htmltools)
 <li><a href="#abcdaire_semantique">Bref abécédaire sémantique</a>.</li>
 <li><a href="#tei_vs_xml"><code>TEI</code> versus <code>XML</code></a>.</li>
 <li><a href="#pourquoi_tei">Pourquoi utiliser l’encodage <code>TEI</code></a>.</li>
+<li><a href="#tei_doc">Comment est structuré un document <code>TEI</code>.</li>
 <li><a href="#tei_questions_semantique">Questions de sémantique : module (notamment pour les <i>primary sources</i>), classes, <code>&lt;element&gt;</code>, <code>&#64;attribut</code>.</a></li>
 <li><a href="#tei_autres_langages">Autres langages à appréhender pour afficher les données <code>TEI</code> dans un navigateur : <code>CSS</code> et <code>XSLT</code></a> (brève introduction au cours de la <a>6e séance</a>).</li>
 <li><a href="#tei_assistance">Assistance et groupes d’entraide en ligne (liste francophone Renater, liste anglophone TEI-L, TEI GitHub, Slack, Stackoverflow)</a>.</li>
@@ -79,7 +80,7 @@ library(htmltools)
 <ul style="list-style-type:upper-roman; text-align: justify; font-size: 14px">
 <li><a href="#tei_modNamesdates">Module [namesdates] pour les noms, dates, personnes et lieux géographiques</a></li>
 <li><a href="#tei_relationNœuds"><code>&#64;attribut</code>s pour créer une relation entre deux ou plusieurs nœuds</a></li>
-<li><a href="#tei_teiCorpus">Encodage pour un corpus : <code>&lt;teiCorpus&gt;</code> du module [core] et <i>primary source</i></a></li>
+<li><a href="#tei_teiCorpus-Content">Encodage pour un corpus : <code>&lt;teiCorpus&gt;</code> du module [core] et <i>primary source</i></a></li>
 </ul>
 
 <hr style="height: 1px; border: 0; color: black; background-color: black;">
@@ -169,7 +170,56 @@ Voir également la vidéo suivante :<br><br> [![Why use `TEI`](Introduction_enco
 <br>
 <hr>
 <br>
-<h2 style="font-size: 20px; color: #808080">1.V. <a id="tei_questions_semantique" style="color: #808080">Questions de sémantique : module (notamment pour les <i>primary sources</i>), classes, <code>&lt;element&gt;</code>, <code>&#64;attribut</code></a> </h2>
+
+<h2 style="font-size: 20px; color: #808080">1.V. <a id="tei_doc" style="color: #808080">Comment est structuré un document <code>TEI</code></a></h2>
+
+<h3 style="font-size: 16px;">Déclaration de la structure du schéma</h3>
+<p style="text-align: justify">Par défaut dans Oxygen, à la création d'un nouveau document <code>TEI</code>, voici le code qui précède les <code>&lt;element&gt;</code>s :</p>
+
+```{xml}
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+```
+
+<h4 style="font-size: 14px;">Explications :</h4>
+<ul style="text-align: justify">
+<li><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code> : déclaration du jeu de caractères ; dans le cas précis <a href="https://fr.wikipedia.org/wiki/UTF-8" target="_blank">Universal Character Set Transformation Format - 8 bits</a> (abr. “UTF-8”) &mdash; <a href="http://www.iana.org/assignments/character-sets/character-sets.xhtml" target="_blank">liste de jeu de caractères possible</a>. <code>version="..."</code> permet de définir la version de <code>XML</code> utlisée sachant que la “version 1.0” est celle qui est la plus courante.</li>
+<li><code>&lt;?xml-model href="IRI-reference" type="application/xml" schematypens="IRI-reference"?&gt;</code> : indication du modèle de schéma à suivre pour que le processeur puisse lire les instructions ; dans le cas précis le <a href="https://fr.wikipedia.org/wiki/Langage_de_description_de_format_de_document" target="_blank">langage de description</a>  “<a href="https://fr.wikipedia.org/wiki/Relax_NG" target="_blank">Regular Language for XML Next Generation</a>” (abr. “Relax NG”) qui spécifie la structure des documents <code>XML</code>.<br>
+<p style="text-align: justify">&#8594; <code>href</code> précise la localisation du schéma de référence grâce un type d'adresse informatique <code>&lt;IRI-reference&gt;</code> (“<a href="https://fr.wikipedia.org/wiki/Internationalized_Resource_Identifier" target="_blank">Internationalized Resource Identifier</a>”, abr. ‘IRI”)<br>
+&#8594; <a href="https://www.w3.org/TR/xml-model/#PA-type" target="_blank"><code>type</code></a> specifie le type de contenu référencé dans le schéma ; dans le cas précis <code>XML</code><br> 
+&#8594; <a href="https://www.w3.org/TR/xml-model/#PA-schematypens" target="_blank"><code>schematypens</code></a> specificie le nom du <code>namespace</code> du langage de schéma ; dans le cas précis <code>schematron</code> &mdash; <a href="https://www.w3.org/TR/xml-model/#d0e689" target="_blank"><code>type</code> et <code>schematypens</code></a> permettent l'identification des schémas utilisés. </p>
+</li>
+</ul>
+
+<p>Un langage de schéma : un schéma permet de définir les règles de validité qui suit le vocabulaire <code>XML</code><br>
+<a href="http://schematron.com" target="_blank">Schematron</a> est un langage qui permet de valider la structure d'un document <code>XML</code>. Lire également le schéma <a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/ST.html#STIN" target="_blank"><code>TEI</code></a>.</p>
+
+<h3 style="font-size: 16px;">Déclaration du <a id="tei_namespace" style="color: #808080"><code>namespace</code></a> relatif à l'encodage <code>TEI</code></h3>
+
+```{xml}
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+```
+
+<h4 style="font-size: 14px;">Explications :</h4>
+<p>Une fois les déclarations de schémas faites, il faut définir le <code>namespace</code> de référence dans le plus haut niveau du document “TEI”.<br>
+&#8594; Un <a href="https://fr.wikipedia.org/wiki/Espace_de_noms_XML" target="_blank"><code>namespace</code></a> permet d'indiquer à quel domaine les <code>&lt;element&gt;</code>s et <code>&#64;attribut</code>s font référence ; un <a href="https://www.w3.org/TR/xml-names/" target="_blank"><code>namespace</code></a> est unique et suit les recommandations du W3C. A lire également les “<a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/USE.html#CFNS" target="_blank">TEI namespaces</a>”. Sa <a href="https://www.w3.org/TR/xml-names/#ns-decl" target="_blank">syntaxe</a> se compose d'un attribut <code>xmlns</code> suivi de l'<i>Uniform Resource Identifier</i> (abr. “URI”) de référence ; dans le cas précis, celle de la “TEI” <code>http://www.tei-c.org/ns/1.0</code>. Ainsi pour chaque <code>namespace</code> dans le document “TEI”, l'URI permettra de comparer sa conformité ou non.<br>
+&#8594; L'élement <code>TEI</code>, membre du module du <i>Default Text Structure</i> [textstructure]. Si le document est composé de plusieurs <code>TEI</code>, <code>teiCorpus</code> (pour le moment) est à privilégier, suivi de plusieurs <code>TEI</code> &mdash; voici d'autres exemples de <a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/examples-TEI.html" target="_blank"><i>Default Text Structure</i></a>.</p>
+
+<hr style="border-style: dotted; border-color: #D3D3D3; margin-top: 50px; width: 250px;  margin-left: 0px" />
+<p style="text-align: justify">Complément de lecture :<br>
+<a href="https://www.w3.org/TR/xml-model/" target="_blank"><i>Associating Schemas with XML documents 1.0 (Third Edition)</i></a><br>
+<a href="https://www.w3.org/TR/xmlschema-2/" target="_blank" target="_blank">XML Schema Part 2: Datatypes Second Edition</a>
+</p>
+
+<p style="font-size:11px; background-color: #708090; width: 100px; padding: 5px;"><b><a href="#tei_sommaire" style="color: white">Sommaire &#8682;</a></b></p>
+
+<br>
+<hr>
+<br>
+
+<h2 style="font-size: 20px; color: #808080">1.VI. <a id="tei_questions_semantique" style="color: #808080">Questions de sémantique : module (notamment pour les <i>primary sources</i>), classes, <code>&lt;element&gt;</code>, <code>&#64;attribut</code></a> </h2>
 
 <p style="text-align: justify">Un document <code>TEI</code> est constitué de plusieurs <b>modules</b>, imbriqués ou non, dans lesquels se trouvent plusieurs <code>&lt;element&gt;</code>s et <code>&#64;attribut</code>s ordonnés dans des <b>classes</b>.</p>
 
@@ -218,7 +268,7 @@ Il existe 261 <code>&#64;attribut</code>s. Un élément a généralement un <cod
 <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/CE.html" target="_blank">Certainty, precision, and responsability</a> [certainty] :<br>
 &#8594; <code>certainty</code> | <code>precision</code> | <code>respons</code></li>
 <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/CO.html" target="_blank">Elements common to all TEI documents</a> [core] :<br>
-&#8594; <code>abbr</code> | <code>add</code> | <code>addrLine</code> | <code>address</code> | <code>analytic</code> | <code>author</code> | <code>bibl</code> | <code>biblScope</code> | <code>biblStruct</code> | <code>binaryObject</code> | <code>cb</code> | <code>choice</code> | <a href="#tei_cit" id="tei_cit-back"><code>cit</code></a> | <code>citedRange</code> | <code>corr</code> | <code>date</code> | <code>del</code> | <code>desc</code> | <code>distinct</code> | <code>divGen</code> | <code>editor</code> | <code>email</code> | <code>emph</code> | <code>expan</code> | <code>foreign</code> | <code>gap</code> | <code>gb</code> | <code>gloss</code> | <code>graphic</code> | <code>head</code> | <code>headItem</code> | <code>headLabel</code> | <code>hi</code> | <code>imprint</code> | <code>index</code> | <code>item</code> | <code>l</code> | <code>label</code> | <code>lb</code> | <code>lg</code> | <code>list</code> | <code>listBibl</code> | <code>measure</code> | <code>measureGrp</code> | <code>media</code> | <code>meeting</code> | <code>mentioned</code> | <code>milestone</code> | <code>monogr</code> | <code>name</code> | <code>note</code> | <code>num</code> | <code>orig</code> | <code>p</code> | <code>pb</code> | <code>postBox</code> | <code>postCode</code> | <code>ptr</code> | <code>pubPlace</code> | <code>publisher</code> | <code>q</code> | <a href="#tei_quote" id="tei_quote-back"><code>quote</code></a> | <a href="#tei_ref" id="tei_ref-back"><code>ref</code></a> | <code>reg</code> | <code>relatedItem</code> | <code>resp</code> | <code>respStmt</code> | <code>rs</code> | <code>said</code> | <code>series</code> | <code>sic</code> | <code>soCalled</code> | <code>sp</code> | <code>speaker</code> | <code>stage</code> | <code>street</code> | <code>teiCorpus</code> | <code>term</code> | <code>textLang</code> | <code>time</code> | <code>title</code> | <code>unclear</code> | <code>unit</code></li>
+&#8594; <code>abbr</code> | <code>add</code> | <code>addrLine</code> | <code>address</code> | <code>analytic</code> | <code>author</code> | <code>bibl</code> | <code>biblScope</code> | <code>biblStruct</code> | <code>binaryObject</code> | <code>cb</code> | <code>choice</code> | <a href="#tei_cit" id="tei_cit-back"><code>cit</code></a> | <code>citedRange</code> | <code>corr</code> | <code>date</code> | <code>del</code> | <code>desc</code> | <code>distinct</code> | <code>divGen</code> | <code>editor</code> | <code>email</code> | <code>emph</code> | <code>expan</code> | <code>foreign</code> | <code>gap</code> | <code>gb</code> | <code>gloss</code> | <code>graphic</code> | <code>head</code> | <code>headItem</code> | <code>headLabel</code> | <code>hi</code> | <code>imprint</code> | <code>index</code> | <code>item</code> | <code>l</code> | <code>label</code> | <code>lb</code> | <code>lg</code> | <code>list</code> | <code>listBibl</code> | <code>measure</code> | <code>measureGrp</code> | <code>media</code> | <code>meeting</code> | <code>mentioned</code> | <code>milestone</code> | <code>monogr</code> | <code>name</code> | <code>note</code> | <code>num</code> | <code>orig</code> | <code>p</code> | <code>pb</code> | <code>postBox</code> | <code>postCode</code> | <code>ptr</code> | <code>pubPlace</code> | <code>publisher</code> | <code>q</code> | <a href="#tei_quote" id="tei_quote-back"><code>quote</code></a> | <a href="#tei_ref" id="tei_ref-back"><code>ref</code></a> | <code>reg</code> | <code>relatedItem</code> | <code>resp</code> | <code>respStmt</code> | <code>rs</code> | <code>said</code> | <code>series</code> | <code>sic</code> | <code>soCalled</code> | <code>sp</code> | <code>speaker</code> | <code>stage</code> | <code>street</code> | <a href="#tei_teiCorpus_content" id="tei_teiCorpus"><code>teiCorpus</code></a> | <code>term</code> | <code>textLang</code> | <code>time</code> | <code>title</code> | <code>unclear</code> | <code>unit</code></li>
 <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/CC.html" target="_blank">Corpus texts</a> [corpus] :<br>
 &#8594; <code>activity</code> | <code>channel</code> | <code>constitution</code> | <code>derivation</code> | <code>domain</code> | <code>factuality</code> | <code>interaction</code> | <code>locale</code> | <code>particDesc</code> | <code>preparedness</code> | <code>purpose</code> | <code>setting</code> | <code>settingDesc</code> | <code>textDesc</code></li>
 <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/DI.html" target="_blank">Dictionaries</a> [dictionaries] :<br>
@@ -250,9 +300,9 @@ Il existe 261 <code>&#64;attribut</code>s. Un élément a généralement un <cod
 <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/DS.html" target="_blank">Default text structure</a> [textstructure] :<br>
 &#8594; <code>TEI</code> | <code>argument</code> | <code>back</code> | <code>body</code> | <code>byline</code> | <code>closer</code> | <code>dateline</code> | <code>div</code> | <code>div1</code> | <code>div2</code> | <code>div3</code> | <code>div4</code> | <code>div5</code> | <code>div6</code> | <code>div7</code> | <code>docAuthor</code> | <code>docDate</code> | <code>docEdition</code> | <code>docImprint</code> | <code>docTitle</code> | <code>epigraph</code> | <code>floatingText</code> | <code>front</code> | <code>group</code> | <code>imprimatur</code> | <code>opener</code> | <code>postscript</code> | <code>salute</code> | <code>signed</code> | <code>text</code> | <code>titlePage</code> | <code>titlePart</code> | <code>trailer</code></li>
 <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/TC.html" id="tei_primary_sources" style="color: #808080">Transcription of primary sources</a> [transcr] &mdash; Fac-similé numérique : copie ou reproduction d'une œuvre (texte ou image) identique à la source originale :<br>
-&#8594; <code>addSpan</code> | <code>am</code> | <code>damage</code> | <code>damageSpan</code> | <code>delSpan</code> | <code>ex</code> | <code>facsimile</code> | <code>fw</code> | <code>handNotes</code> | <code>handShift</code> | <code>line</code> | <code>listTranspose</code> | <code>metamark</code> | <code>mod</code> | <code>path</code> | <code>redo</code> | <code>restore</code> | <code>retrace</code> | <code>secl</code> | <code>sourceDoc</code> | <code>space</code> | <code>subst</code> | <code>substJoin</code> | <code>supplied</code> | <code>surface</code> | <code>surfaceGrp</code> | <code>surplus</code> | <code>transpose</code> | <code>undo</code> | <code>zone</code>
+&#8594; <code>addSpan</code> | <code>am</code> | <code>damage</code> | <code>damageSpan</code> | <code>delSpan</code> | <code>ex</code> | <a href="#tei_facsimile" id="tei_facsimile-back"><code>facsimile</code></a> | <code>fw</code> | <code>handNotes</code> | <code>handShift</code> | <code>line</code> | <code>listTranspose</code> | <code>metamark</code> | <code>mod</code> | <code>path</code> | <code>redo</code> | <code>restore</code> | <code>retrace</code> | <code>secl</code> | <code>sourceDoc</code> | <code>space</code> | <code>subst</code> | <code>substJoin</code> | <code>supplied</code> | <code>surface</code> | <code>surfaceGrp</code> | <code>surplus</code> | <code>transpose</code> | <code>undo</code> | <code>zone</code>
 <ul>
-<li>Exemple 1, fac-similé dont la surface n'est pas précisément définie, sans distinction de zone : 
+<li>Exemple 1, <a id="tei_facsimile_ex">fac-similé</a> dont la surface n'est pas précisément définie, sans distinction de zone <a href="#tei_facsimile"><b>&#8613;</b></a> : 
 ```{xml}
 <!-- Source : https://www.tei-c.org/release/doc/tei-p5-doc/en/html/PH.html -->
 <facsimile>
@@ -371,7 +421,7 @@ Note : Conventionnellement, un <code>#</code> précède chaque <code>&#64;facs</
 <br>
 <hr>
 <br>
-<h2 style="font-size: 20px; color: #808080">1.VI. <a id="#tei_autres_langages"style="color: #808080">Autres langages à appréhender pour afficher les données <code>TEI</code> dans un navigateur : <code>CSS</code> et <code>XSLT</code></a></h2>
+<h2 style="font-size: 20px; color: #808080">1.VII. <a id="#tei_autres_langages"style="color: #808080">Autres langages à appréhender pour afficher les données <code>TEI</code> dans un navigateur : <code>CSS</code> et <code>XSLT</code></a></h2>
 
 <h3 style="font-size: 16px">Qu'est-ce que <code>CSS</code></h3>
 <p style="text-align: justify"><a href="https://www.w3.org/Style/CSS/Overview.en.html" target="_blank">Cascading Style Sheets</a> (abr. <code>CSS</code>, feuille de style) permet d'ajouter du style aux documents, notamment <code>HTML</code (Hyper Text Markup Language), <code>XML</code> et <code>TEI</code> &mdash; couleur, alignement, polices de caractère, tableaux, espacement... Un groupe du travail du W3C met à jour régulièrement les recommandations pour chaque style &mdash; exemple, <a href="https://www.w3.org/TR/2019/WD-css-color-4-20190305/" target="_blank">color</a>. <br>
@@ -666,7 +716,7 @@ Romary, Laurant. 2004. <a href="https://www.tei-c.org/Vault/MembersMeetings/2004
   <li>nœuds d'<code>&lt;element&gt;</code>s &mdash; contient automatiquement un <a href="http://xmlfr.org/w3c/TR/xpath/#dt-expanded-name" target="_blank">nom expansé</a> (<i>expanded-name</i>)</li>
   <li>nœuds d'<code>&#64;attribut</code>s</li>
   <li>nœuds de texte</li>
-  <li>nœuds d'espace de noms (<i>namespace</i>)
+  <li>nœuds d'espace de noms (<a href="#tei_namespace"><i>namespace</i></a>)
   <li>nœuds d'instuction de traitement</li>
   <li>nœuds commentaire</li>
 </ol>  
@@ -703,7 +753,7 @@ Romary, Laurant. 2004. <a href="https://www.tei-c.org/Vault/MembersMeetings/2004
       &#8702; <code>descendant-or-self::</code> : sélectionne les descendants (enfants, petits-enfant…) du nœud courant et le nœud courant lui-même ; <code>&lt;entryFree&gt;/&lt;w&gt;//m[&#64;type="adv"]</code> => sélectionne tous les <code>&lt;m[&#64;type="adv"]&gt;</code> qui suivent <code>&lt;w&gt;</code> dans <code>&lt;entryFree&gt;</code><br>
       &#8702; <a id="xpath_fsibling" style="color: #808080"><code>following-sibling::</code></a> : sélectionne tous les “frères” après le nœud courant ; <code>following-sibling::w</code><br>
       &#8702; <code>following::</code> : sélectionne tout après la balise de fermeture du nœud courant<br> 
-      &#8702; <code>namespace::</code> : sélectionne tous les nœuds des <code>namespaces</code> (espace de noms) du nœud courant</p>
+      &#8702; <code>namespace::</code> : sélectionne tous les nœuds des <a href="#tei_namespace"><code>namespaces</code></a> (espace de noms) du nœud courant</p>
   </li>  
   <li><u>Axes arrière</u> :
     <p style="text-align: justify">&#8702; <a id="xpath_parent" style="color: #808080"><code>parent::</code></a> : sélectionne le parent du nœud courant<br>
@@ -846,21 +896,114 @@ Notez que cet élément est <b>obligatoire</b>.</p>
 <hr style="padding-top: 20px; padding-bottom: 10px">
 <h2 style="font-size: 20px; color: #808080;"><a id="tei_relationsNœuds" style="color: #808080">6.II. <code>&#64;attribut</code>s pour créer une relation entre deux ou plusieurs nœuds </h2>
 
+<p><a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-teidata.pointer.html" target="_blank">teidata.pointer</a></p> 
+<p>Propriétés d'un <code>data.pointer</code> :<br>
+&#8702; il pointe vers quelque chose <br>
+&#8702; il est formé d'un <code>xml:id NCNames</code> valide</p>
+
+<p>Note : <a href="https://www.w3.org/TR/xmlschema-2/#NCName" target="_blank"><code>NCNames</code></a> signifie un “nom non-colonisé” (= nom non-qualifié)<a href="#6" id="6-back"><sup style="font-size: 10px">6</sup></a> est une chaîne de caractères dont les symboles suivants sont exclus “@ , $ , % , & , / , + ,,, ;”, ainsi que les espaces et les parenthèses et il ne peut pas commencer par un chiffre, un point ou le signe -.</p>
+
+
+
+
+
+<br>
+<p style="text-align: justify"><a id="6" style="color: #808080">[6]</a> A l'inverse du <a href="https://www.w3.org/TR/xmlschema-2/#QName" target="_blank"><code>QName</code></a> qui est un nom qualifié : <code>ns:name</code> &mdash; <code>ns</code> = “namespace” (espace de nom).</p>
 
 <hr style="padding-top: 20px; padding-bottom: 10px">
-<h2 style="font-size: 20px; color: #808080;"><a id="tei_teiCorpus" style="color: #808080">6.III. Encodage pour un corpus : <code>&lt;teiCorpus&gt;</code> du module [core] et <i>primary source</i></a> </h2>
+<h2 style="font-size: 20px; color: #808080;"><a id="tei_teiCorpus-Content" style="color: #808080">6.III. Encodage pour un corpus : <code>&lt;teiCorpus&gt;</code></a> <a href="#tei_teiCorpus"><b>&#8613;</b></a> et <i>primary source</i> </h2>
 
+<h3 style="font-size: 16px;><code>&lt;element&gt;</code>s membre du <code>&lt;teiCorpus&gt;</code> du module [core]</h3>
 <p><code>&lt;teiCorpus&gt;</code> peut contenir les <code>&lt;element&gt;</code>s : <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teiCorpus.html" target="_blank"><code>teiCorpus</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teiHeader.html" target="_blank"><code>teiHeader</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-fsdDecl.html" target="_blank"><code>fsdDecl</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-TEI.html" target="_blank"><code>TEI</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-text.html" target="_blank"><code>text</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-facsimile.html" target="_blank"><code>facsimile</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-sourceDoc.html" target="_blank"><code>sourceDoc</code></a></p>
 
+<h4 style="font-size: 14px">Sélection des <code>&lt;element&gt;</code>s :</h3>
+
 <ul>
-<li><code>teiCorpus</code> : </li>
-<li><code>teiHeader</code> : </li>
-<li><code>fsdDecl</code> : déclaration de système de traits relatives à une <i>structure de traits</i> (paire trait-valeur)</li>
+<li><code>teiCorpus</code> : comprend plusieurs <code>TEI</code> et oblligatoirement un <code>teiHeader</code> :
+```{xml}
+<!-- Source https://www.tei-c.org/release/doc/tei-p5-doc/en/html/examples-teiCorpus.html -->
+<teiCorpus version="3.3.0" xmlns="http://www.tei-c.org/ns/1.0">
+ <teiHeader>
+<!--[en-tête du corpus]-->
+ </teiHeader>
+ <TEI>
+  <teiHeader>
+<!--[en-tête du premier texte]-->
+  </teiHeader>
+  <text>
+<!--[premier texte du corpus]-->
+  </text>
+ </TEI>
+ <TEI>
+  <teiHeader>
+<!--[en-tête du deuxième texte]-->
+  </teiHeader>
+  <text>
+<!--[deuxième texte du corpus]-->
+  </text>
+ </TEI>
+</teiCorpus>
+```
+Un second exemple à partir des travaux de Liset Díaz :
+```{xml}
+<teiCorpus version="3.3.0" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <!-- corpus file description-->
+         <titleStmt>
+            <title>Corpus parallèles et comparables en espagnol et en français: "Crónica de una muerte anunciada"</title>
+            <author>Gabriel García Márquez, traducteur Claude Couffon</author>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <bibl/>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  
+  <!-- avec <xi:include>, les données sont traitées comme si elles sont incluses dans le <teiCorpus>, autrement dit les datapointers pointeront directement dans ce document “#datapointer” --> 
+  <xi:include href="../ENCODAGE_GABO_2019/Cronica_part_1_FINAL.xml"
+      xmlns:xi="http://www.w3.org/2001/XInclude"/>
+   <!-- Corpus en espagnol "Crónica de una muerte anunciada"  -->
+
+   <xi:include href="../ENCODAGE_GABO_2019/Chronique_part_1_FINAL.xml"
+      xmlns:xi="http://www.w3.org/2001/XInclude"/>
+   <!-- Corpus en français "Chronique d'une mort annoncée"  -->
+</teiCorpus>
+```
+</li>
+<li><code>teiHeader</code> : voir <a href="#tei_schemaTeiHeader" id="teiCorpus_content-teiHeader">l'explication précédente</a> </li>
+<li><code>fsdDecl</code> : déclaration de système de traits relatives à une <i>structure de traits</i> (paire trait-valeur) &mdash; voir <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/FS.html#FDEG" target="_blank">l'exemple complet</a>.</li>
 <li><code>TEI</code> : comprend obligatoirement un <code>&lt;teiHeader&gt;</code> et un texte</li>
 <li><code>text</code> : un texte de manière isolée sans <code>&lt;teiHeader&gt;</code></li>
-<li><code>facsimile</code> : représentation d'une image d'une source écrite transcrite &mdash; relative au <i>Primary Source</i></li>
+<li><a id="tei_facsimile"><code>facsimile</code></a> <a href="#tei_facsimile-back"><b>&#8613;</b></a> : représentation d'une image d'une source écrite transcrite &mdash; relative au <i>Primary Source</i>. Voir l'exemple d'encodage dans le <a href="#tei_facsimile_ex">présent document</a>.</li>
 <li><code>sourceDoc</code> :une transcription ou une représentation d'une seule source &mdash; ou une collection de sources relative au <i>Primary Source</i></li>
 </ul>
+
+<h5 style="font-size: 12px">&#8702; <u>Carte heuristique</u> :</h5>
+
+<img src ="Introduction_encodage_TEI-figure/carte_heuristique_teiCorpus.png" width="80%" />
+
+<h3 style="font-size: 16px;"><i>Primary sources</i> &mdash; module [transcr]</h3>
+
+<h4 style="font-size: 14px;">classes d'<code>&#64;attributs</code></h4>
+<ul>
+<li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.coordinated.html" target="_blank">att.coordinated<a/> : pour positionner les coordonnées à deux dimensions (x, y) &mdash; liste des membres <code>&lt;line&gt;</code> | <code>&lt;surface&gt;</code> | <code>&lt;zone&gt;</code>
+<p>&#8702; teidata.pointer : <code>&#64;start</code> <br>
+&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teidata.numeric.html" target="_blank">teidata.numeric</a> : <code>&#64;ulx</code> | <code>&#64;uly</code> | <code>&#64;lrx</code> | <code>&#64;lry</code><br>
+&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teidata.point.html" target="_blank">teidata.point</a> : <code>&#64;points</code>
+</li>
+<li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.global.change.html" target="_blank">att.global.change<a/> : pour spécifier à “ses” <code>&lt;element&gt;</code>s membre les différents états ou révisions &mdash; tous les membres de <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.global.html" target="_blank">att.global</a><br>
+<p>&#8702; teidata.pointer : <code>&#64;change</code></p>
+</li>
+<li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.global.facs.html" target="_blank">att.global.facs</a> : pour exprimer la correspondance entre un élément correspondant à une transcription d'une partie d’une image représentant ce texte ou dans son intégralité &mdash; tous les membres de <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.global.html" target="_blank">att.global</a><br>
+<p>&#8702; teidata.pointer : <code>&#64;facs</p>
+</li>
+</ul>
+
+
 
 <hr style="padding-top: 20px; padding-bottom: 10px">
 <h2 style="font-size: 20px; color: #808080;"><a id="xslt_intro" style="color: #808080">8.III. Brève introduction à <code>XSLT</code></a> </h2>
