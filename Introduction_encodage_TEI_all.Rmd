@@ -79,7 +79,7 @@ library(htmltools)
 <h3 style="font-size: 16px">Séance (en ligne) du 26 mai 2019 (6)</h3>
 <ul style="list-style-type:upper-roman; text-align: justify; font-size: 14px">
 <li><a href="#tei_modNamesdates">Module [namesdates] pour les noms, dates, personnes et lieux géographiques</a></li>
-<li><a href="#tei_relationNœuds"><code>&#64;attribut</code>s pour créer une relation entre deux ou plusieurs nœuds</a></li>
+<li><a href="#tei_relationsNœuds"><code>&#64;attribut</code>s pour créer une relation entre deux ou plusieurs nœuds</a></li>
 <li><a href="#tei_teiCorpus-Content">Encodage pour un corpus : <code>&lt;teiCorpus&gt;</code> du module [core] et <i>primary source</i></a></li>
 </ul>
 
