@@ -78,9 +78,9 @@ library(htmltools)
 
 <h3 style="font-size: 16px">Séance (en ligne) du 26 mai 2019 (6)</h3>
 <ul style="list-style-type:upper-roman; text-align: justify; font-size: 14px">
-<li><a href="#tei_modNamesdates">Module [namesdates] pour les noms, dates, personnes et lieux géographiques</a></li>
 <li><a href="#tei_relationsNœuds"><code>&#64;attribut</code>s pour créer une relation entre deux ou plusieurs nœuds</a></li>
 <li><a href="#tei_teiCorpus-Content">Encodage pour un corpus : <code>&lt;teiCorpus&gt;</code> du module [core] et <i>primary source</i></a></li>
+<li><a href="#xslt_intro">Brève introduction à <code>XSLT</code></a></li>
 </ul>
 
 <hr style="height: 1px; border: 0; color: black; background-color: black;">
@@ -889,12 +889,9 @@ Notez que cet élément est <b>obligatoire</b>.</p>
 <h4 style="font-size: 14px;">Données intellectuelles</h3>
 <img src ="Introduction_encodage_TEI-figure/carteHeuristique_manuscrits_3.png" width="90%" />
 <br><br>
-<hr style="padding-top: 20px; padding-bottom: 10px">
-<h2 style="font-size: 20px; color: #808080;"><a id="tei_modNamesdates" style="color: #808080">6.I. Module [namesdates] pour les noms, dates, personnes et lieux géographiques</a></h2>
-
 
 <hr style="padding-top: 20px; padding-bottom: 10px">
-<h2 style="font-size: 20px; color: #808080;"><a id="tei_relationsNœuds" style="color: #808080">6.II. <code>&#64;attribut</code>s pour créer une relation entre deux ou plusieurs nœuds </h2>
+<h2 style="font-size: 20px; color: #808080;"><a id="tei_relationsNœuds" style="color: #808080">6.I. <code>&#64;attribut</code>s pour créer une relation entre deux ou plusieurs nœuds </h2>
 
 <p><a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-teidata.pointer.html" target="_blank">teidata.pointer</a></p> 
 <p>Propriétés d'un <code>data.pointer</code> :<br>
@@ -905,13 +902,11 @@ Notez que cet élément est <b>obligatoire</b>.</p>
 
 
 
-
-
 <br>
 <p style="text-align: justify"><a id="6" style="color: #808080">[6]</a> A l'inverse du <a href="https://www.w3.org/TR/xmlschema-2/#QName" target="_blank"><code>QName</code></a> qui est un nom qualifié : <code>ns:name</code> &mdash; <code>ns</code> = “namespace” (espace de nom).</p>
 
 <hr style="padding-top: 20px; padding-bottom: 10px">
-<h2 style="font-size: 20px; color: #808080;"><a id="tei_teiCorpus-Content" style="color: #808080">6.III. Encodage pour un corpus : <code>&lt;teiCorpus&gt;</code></a> <a href="#tei_teiCorpus"><b>&#8613;</b></a> et <i>primary source</i> </h2>
+<h2 style="font-size: 20px; color: #808080;"><a id="tei_teiCorpus-Content" style="color: #808080">6.II. Encodage pour un corpus : <code>&lt;teiCorpus&gt;</code></a> <a href="#tei_teiCorpus"><b>&#8613;</b></a> et <i>primary source</i> </h2>
 
 <h3 style="font-size: 16px;><code>&lt;element&gt;</code>s membre du <code>&lt;teiCorpus&gt;</code> du module [core]</h3>
 <p><code>&lt;teiCorpus&gt;</code> peut contenir les <code>&lt;element&gt;</code>s : <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teiCorpus.html" target="_blank"><code>teiCorpus</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teiHeader.html" target="_blank"><code>teiHeader</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-fsdDecl.html" target="_blank"><code>fsdDecl</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-TEI.html" target="_blank"><code>TEI</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-text.html" target="_blank"><code>text</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-facsimile.html" target="_blank"><code>facsimile</code></a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-sourceDoc.html" target="_blank"><code>sourceDoc</code></a></p>
@@ -993,20 +988,20 @@ Un second exemple à partir des travaux de Liset Díaz :
 <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.coordinated.html" target="_blank">att.coordinated<a/> : pour positionner les coordonnées à deux dimensions (x, y) &mdash; liste des membres <code>&lt;line&gt;</code> | <code>&lt;surface&gt;</code> | <code>&lt;zone&gt;</code>
 <p>&#8702; teidata.pointer : <code>&#64;start</code> <br>
 &#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teidata.numeric.html" target="_blank">teidata.numeric</a> : <code>&#64;ulx</code> | <code>&#64;uly</code> | <code>&#64;lrx</code> | <code>&#64;lry</code><br>
-&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teidata.point.html" target="_blank">teidata.point</a> : <code>&#64;points</code>
+&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teidata.point.html" target="_blank">teidata.point</a> : <code>&#64;points</code></p>
 </li>
 <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.global.change.html" target="_blank">att.global.change<a/> : pour spécifier à “ses” <code>&lt;element&gt;</code>s membre les différents états ou révisions &mdash; tous les membres de <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.global.html" target="_blank">att.global</a><br>
 <p>&#8702; teidata.pointer : <code>&#64;change</code></p>
 </li>
 <li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.global.facs.html" target="_blank">att.global.facs</a> : pour exprimer la correspondance entre un élément correspondant à une transcription d'une partie d’une image représentant ce texte ou dans son intégralité &mdash; tous les membres de <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.global.html" target="_blank">att.global</a><br>
-<p>&#8702; teidata.pointer : <code>&#64;facs</p>
+<p>&#8702; teidata.pointer : <code>&#64;facs</code></p>
 </li>
 </ul>
 
 
 
 <hr style="padding-top: 20px; padding-bottom: 10px">
-<h2 style="font-size: 20px; color: #808080;"><a id="xslt_intro" style="color: #808080">8.III. Brève introduction à <code>XSLT</code></a> </h2>
+<h2 style="font-size: 20px; color: #808080;"><a id="xslt_intro" style="color: #808080">6.III. Brève introduction à <code>XSLT</code></a> </h2>
 <p style="text-align: justify"><code>XSLT</code> est un langage <code>XML</code>, de ce fait il doit respecter le même schéma sémantique. Un fichier <code>XSLT</code> fait <u>automatiquement référence à un document <code>XML</code> ou <code>TEI</code></u> ; un certain nombre d'instructions sera écrite selon des normes d'encodage rigoureuses (ou des règles sémantiques).</p>
 
 <h3 style="font-size: 16px;"> <code>XSL</code> <i>vs</i> <code>XSLT</code></h3>
@@ -1098,6 +1093,9 @@ accesseur | erreur et Trace | numérique | chaîne | anyURI | boolean | durée, 
 <li><a href="https://www.xml.com/pub/a/2003/06/04/tr.html" target="_blank">Expressions régulières utilisées dans <code>XSLT</code></a></li>
 </ul>
 
+
+<hr style="padding-top: 20px; padding-bottom: 10px">
+<h2 style="font-size: 20px; color: #808080;"><a id="tei_modNamesdates" style="color: #808080">7.I. Module [namesdates] pour les noms, dates, personnes et lieux géographiques</a></h2>
 <hr style="height: 1px; border: 0; color: black; background-color: black;">
 <span style="font-size: 14px; color: #708090">Vanessa Bigot Juloux (EPHE-PSL, Andrews University)</span>
 
