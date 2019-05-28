@@ -83,6 +83,13 @@ library(htmltools)
 <li><a href="#xslt_intro">Brève introduction à <code>XSLT</code></a></li>
 </ul>
 
+<h3 style="font-size: 16px">Séance (en ligne) du 28 mai 2019 (7)</h3>
+<ul style="list-style-type:upper-roman; text-align: justify; font-size: 14px">
+<li><a id="#tei_modNamesdates">Module [namesdates] pour les noms, dates, personnes et lieux géographiques</a></li>
+<li><a href="#regex">Brève introduction aux expressions régulières (REGEX)</a></li>
+</ul>
+
+
 <hr style="height: 1px; border: 0; color: black; background-color: black;">
 <h2 style="font-size: 20px; color: #808080">1.I. <a id="tei_xml_bref" style="color: #808080">En bref...</a></h2>
 
@@ -893,14 +900,152 @@ Notez que cet élément est <b>obligatoire</b>.</p>
 <hr style="padding-top: 20px; padding-bottom: 10px">
 <h2 style="font-size: 20px; color: #808080;"><a id="tei_relationsNœuds" style="color: #808080">6.I. <code>&#64;attribut</code>s pour créer une relation entre deux ou plusieurs nœuds </h2>
 
-<p><a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-teidata.pointer.html" target="_blank">teidata.pointer</a></p> 
+<p><a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-teidata.pointer.html" target="_blank">teidata.pointer</a> fournit une URI unique pour pointer vers une donnée interne ou externe au documet.</p> 
 <p>Propriétés d'un <code>data.pointer</code> :<br>
 &#8702; il pointe vers quelque chose <br>
-&#8702; il est formé d'un <code>xml:id NCNames</code> valide</p>
+&#8702; il est formé d'un <b><code>xml:id NCNames</code></b> valide</p>
 
-<p>Note : <a href="https://www.w3.org/TR/xmlschema-2/#NCName" target="_blank"><code>NCNames</code></a> signifie un “nom non-colonisé” (= nom non-qualifié)<a href="#6" id="6-back"><sup style="font-size: 10px">6</sup></a> est une chaîne de caractères dont les symboles suivants sont exclus “@ , $ , % , & , / , + ,,, ;”, ainsi que les espaces et les parenthèses et il ne peut pas commencer par un chiffre, un point ou le signe -.</p>
+<p>Note au sujet de la validité du “NCNames” : <a href="https://www.w3.org/TR/xmlschema-2/#NCName" target="_blank"><code>NCNames</code></a> signifie un “nom non-colonisé” (= nom non-qualifié)<a href="#6" id="6-back"><sup style="font-size: 10px">6</sup></a> est une chaîne de caractères dont les symboles suivants sont exclus “@ , $ , % , & , / , + ,,, ;”, ainsi que les espaces et les parenthèses et il ne peut pas commencer par un chiffre, un point ou le signe -.</p>
 
+<h3 style="padding-top: 16px;>Liste des 31 classes utilisées par <code>teidata.pointer</code>, classées par [module]</h3>
+<ul>
+<li>[namesdates] :<br>
+<p>&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.datable.custom.html" target="_blank">att.datable.custom</a> (<code>&#64;datingMethod</code> | <code>&#64;datingPoint</code> ) : pour la normalisation des éléments d'évènements datables à un système de datation personnalisé autre que le calendrier Gregorien<br>
+```{xml}
+<!-- source https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.datable.custom.html -->
+Contayning the Originall, Antiquity, Increaſe, Moderne eſtate, and deſcription of that Citie, written in the yeare <date when-custom="1598" calendar="#julian" datingMethod="#julian">1598</date>. by Iohn Stow Citizen of London.
+```
+</p>
+</li>
+<li>[tei] :<br>
+<p>&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.ascribed.html" target="_blank">att.ascribed</a> (<code>&#64;who</code>) : action ou parole attribuée à une personne :<br>
+```{xml}
+<!-- source : https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.ascribed.html -->
+<castItem type="role">
+ <role xml:id="Barnardo">Bernardo</role>
+</castItem>
+<!-- ... -->
+<sp who="#Barnardo">
+ <speaker>Bernardo</speaker>
+ <l n="1">Who's there?</l>
+</sp>
+```
+&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.ascribed.directed.html" target="_blank">att.ascribed.directed</a> (<code>&#64;toWhom</code>) : action ou parole destinée à une personne ou à un groupe<br>
+```{xml}
+<!-- source https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.ascribed.directed.html -->
+<castItem type="role">
+ <role xml:id="emil">Emilius.</role>
+</castItem>
+<castItem type="role">
+ <role xml:id="lov">Lovisa</role>
+</castItem>
+<castItem type="role">
+ <role xml:id="serv">A servant</role>
+</castItem>
+<!-- ... -->
+<sp who="#emil" toWhom="#lov">
+ <speaker>Emil.</speaker>
+ <l n="1">My love!</l>
+</sp>
+<sp who="#lov" toWhom="#emil">
+ <speaker>Lov.</speaker>
+ <l n="2">I have no Witness of my Noble Birth</l>
+ <stage who="emil" toWhom="#serv">Pointing to her Woman.</stage>
+ <l>But that poor helpless wretch——</l>
+</sp>
+```
 
+&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.canonical.html" target="_blank">att.canonical</a> (<code>&#64;ref</code>) : pour associer une représentation (nom, titre d'une infromation canonique) relative à l'objet nommée ou auquel il se réfère<br>
+```{xml}
+<!-- deux @ref qui se suivent sont séparées par un espace -->
+<!-- source : https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ND.html#NDATTSnr -->
+That wretched pair <name ref="#DPB1 #EBB1" type="person">the Browns</name> came to dine ...
+```
+
+&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.datable.html" target="_blank">att.datable</a> (<code>&#64;calendar</code> | <code>&#64;period</code>) : pour des évènements dont la date est définie ou pas encore<br>
+```{xml}
+<!-- Exemple 1 pour @calendar -->
+<!-- source https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ND.html#NDDATE -->
+<p>The Poole by S. <hi>Giles</hi> Churchyarde was a large water in the yeare <date calendar="#julianEngland">1244</date>. </p>
+<!-- Exemple 2 pour @period -->
+<!-- source https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ND.html#NDDATE -->
+<placeName period="#christian">Stauropolis</placeName>
+```
+&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.datcat.html" target="_blank">att.datcat</a> (<code>&#64;datcat</code> | <code>&#64;valueDatca</code>) : pour la conformité des données <i>Data Categories</i> qui suivent les normes ISO lesquelles sont stockées dans le répertoire <a href="http://www.isocat.org/" target="_blank">ISOCat</a><br>
+```{xml}
+<!-- source https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/DI.html#DIMVLV -->
+<entry>
+<!--...-->
+ <form>
+  <orth>isotope</orth>
+ </form>
+ <gramGrp>
+  <pos dcr:datcat="http://www.isocat.org/datcat/DC-1345"
+   dcr:valueDatcat="http://www.isocat.org/datcat/DC-1230">adj</pos>
+ </gramGrp>
+<!--...-->
+</entry>
+```
+
+</p> 
+</li>
+<li>[transr] :<br>
+<p> &#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.coordinated.html" target="_blank">att.coordinated</a> (<code>&#64;start</code>) : relatif à un système de coordonnées<br>
+```{xml}
+<!-- source https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/examples-surface.html -->
+<facsimile>
+ <surface start="#PB49R">
+  <graphic url="Bovelles-49r.png"/>
+ </surface>
+</facsimile>
+<text>
+ <body>
+  <div>
+<!-- ... -->
+   <pb xml:id="PB49R"/>
+   <fw>De Geometrie 49</fw>
+<!-- ... -->
+  </div>
+ </body>
+</text>
+```
+
+</p>
+</li>
+<li>att.datable</li>
+<li>att.datable.custom</li>
+<li>att.datcat</li>
+<li>att.declaring</li>
+<li>att.edition</li>
+<li>att.global</li>
+<li>att.global.analytic</li>
+<li>att.global.change</li>
+<li>att.global.facs</li>
+<li>att.global.linking</li>
+<li>att.global.rendition</li>
+<li>att.global.source></li>
+<li>att.handFeatures</li>
+<li>att.interLike</li>
+<li>att.lexicographic</li>
+<li>att.linguistic</li>
+<li>att.msClass</li>
+<li>att.naming</li>
+<li>att.pointing</li>
+<li>att.pointing.group</li>
+<li>att.rdgPart</li>
+<li>att.resourced</li>
+<li>att.scoping</li>
+<li>att.spanning</li>
+<li>att.textCritical</li>
+<li>att.timed</li>
+<li>att.witnessed</li>
+<li>att.written</li>
+</ul>
+
+<h3 style="padding-top: 16px;>Liste des <code>&lt;element&gt;</code> utilisés par <code>teidata.pointer</code></h3>
+<ol>
+<li></li>
+</ol>
 
 <br>
 <p style="text-align: justify"><a id="6" style="color: #808080">[6]</a> A l'inverse du <a href="https://www.w3.org/TR/xmlschema-2/#QName" target="_blank"><code>QName</code></a> qui est un nom qualifié : <code>ns:name</code> &mdash; <code>ns</code> = “namespace” (espace de nom).</p>
@@ -1096,6 +1241,79 @@ accesseur | erreur et Trace | numérique | chaîne | anyURI | boolean | durée, 
 
 <hr style="padding-top: 20px; padding-bottom: 10px">
 <h2 style="font-size: 20px; color: #808080;"><a id="tei_modNamesdates" style="color: #808080">7.I. Module [namesdates] pour les noms, dates, personnes et lieux géographiques</a></h2>
+
+
+<ul>
+<li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.datable.custom.html" target="_blank">att.datable.custom</a> : normalisation des éléments qui contiennent des évènements datables à la personnalisation des calendriers (autres que grégoriens) ; types de données : <a href=éhttps://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-teidata.word.html" target="_blank">teidata.word</a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-teidata.pointer.html" target="_blank">tei.pointer</a><br>
+<p> &#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.datable.html" target="_blank">att.datable</a></li>
+<li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.datable.iso.html" target="_blank">att.datable.iso</a> : type de données ISO standards <a href"https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-teidata.temporal.iso.html" target="_blank">teidata.temporal.iso</a> (valeurs temporelles comme une date, une période)<br>
+<p> &#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.datable.html" target="_blank">att.datable</a></li>
+<li><a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-model.persNamePart.html" target="_blank">model.persNamePart</a></li>
+</ul>
+
+<h3 style="font-size: 16px">En détail : type de données et classe d'<code>&#64;ttribut</code>s</h3>
+
+<ul>
+<li>Relation entre deux ou plusieurs entités (<a href="https://tei-c.org/Vault/P5/2.7.0/doc/tei-p5-doc/fr/html/ref-att.canonical.html" target="_blank">att.canonical</a> [tei] | a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.naming.html" target="_blank">att.naming</a> [tei] | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.global.responsibility.html" target="_blank">att.global.responsability</a> [tei]<br>
+<p> &#8702; data.text : <code>&#64;key</code> (att.canonical) &mdash; chaîne de caractères Unicode
+```{xml}
+<!-- source https://tei-c.org/Vault/P5/2.7.0/doc/tei-p5-doc/fr/html/ref-att.canonical.html -->
+<nationality notBefore="2002-01-15" key="US"/>
+```
+&#8702; data.pointer : <code>&#64;ref</code> &mdash; localiser une adresse avec une URI | <code>&#64;nymRef</code> &mdash; fait référence au nom canonique <br>
+```{xml}
+<!-- @ref -->
+<!-- source https://tei-c.org/Vault/P5/2.7.0/doc/tei-p5-doc/fr/html/ND.html -->
+That silly man <name ref="http://www.example.com/personography.xml#DPB1" type="person">David Paul Brown</name> has suffered
+
+<!--  @nymRef -->
+<!-- source https://tei-c.org/Vault/P5/2.7.0/doc/tei-p5-doc/fr/html/ND.html#NDNYM -->
+<listNym>
+ <nym xml:id="N123">
+  <form>Antony</form>
+ </nym>
+<!-- other nym definitions here -->
+</listNym>
+<forename nymRef="#N123">Tony</forename> Blair
+```
+
+&#8702; <a href="https://tei-c.org/Vault/P5/2.7.0/doc/tei-p5-doc/fr/html/ref-data.enumerated.html" target="_blank"> data.enumerated</a> : <code>&#64;role</code> 
+```{xml}
+<!-- source https://tei-c.org/Vault/P5/2.7.0/doc/tei-p5-doc/fr/html/ND.html -->
+That silly man <name role="politician" type="person">David Paul Brown</name> has suffered ...</a>
+```
+&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teidata.probCert.html" target="_blank">teidata.probCert</a> : <code>&#64;cert</code> 
+```{xml}
+<!-- source https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ND.html#NDNA -->
+<event type="birth" resp="#XYZ" cert="high">
+```
+</p>
+</li>
+<li>Relative aux dates <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.datable.html" target="_blank">att.dattable</a> [tei] | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.datable.w3c.html" target="_blank">att.data.w3c [tei]</a> | <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.duration.w3c.html" target="_blank">att.duration.w3c</a> [tei]<br>
+<p>&#8702; teidata.pointer : <code>&#64;calendar</code> | <code>&#64;period</code><br>
+&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teidata.temporal.w3c.html" target="_blank">teidata.temporel.w3c</a> : <code>&#64;when</code> | <code>&#64;noteBefore</code> | <code>&#64;notAfter</code> | <code>&#64;from</code> | <code>&#64;to</code><br>
+```{xml}
+<!-- source https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ND.html -->
+<date when-iso="13">fourteenth
+ century</date>
+<date when-iso="1301/1400">fourteenth century</date>
+<date when-iso="1301/P100Y">fourteenth century</date>
+```
+&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teidata.duration.w3c.html" target="_blank">teidata.duration.w3c</a> [tei] : <code>&#64;dur</code> &mdash précise la durée<br>
+```{xml}
+<!-- source https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ND.html -->
+I reached the station <time when="14:15:00">
+ <time dur="PT30M0S">precisely half an hour</time>
+ <offset>after</offset>
+ <time when="13:45:00" type="occasion">the departure of the afternoon train to Boston</time>
+</time>
+```
+<li>
+</ul>
+
+<hr style="padding-top: 20px; padding-bottom: 10px">
+<h2 style="font-size: 20px; color: #808080;"><a id="regex" style="color: #808080">7.II. Brève introduction aux expressions régulières (REGEX)</a></h2>
+
 <hr style="height: 1px; border: 0; color: black; background-color: black;">
 <span style="font-size: 14px; color: #708090">Vanessa Bigot Juloux (EPHE-PSL, Andrews University)</span>
 
