@@ -85,7 +85,7 @@ library(htmltools)
 
 <h3 style="font-size: 16px">Séance (en ligne) du 28 mai 2019 (7)</h3>
 <ul style="list-style-type:upper-roman; text-align: justify; font-size: 14px">
-<li><a id="#tei_modNamesdates">Module [namesdates] pour les noms, dates, personnes et lieux géographiques</a></li>
+<li><a href="#tei_modNamesdates">Module [namesdates] pour les noms, dates, personnes et lieux géographiques</a></li>
 <li><a href="#regex">Brève introduction aux expressions régulières (REGEX)</a></li>
 </ul>
 
