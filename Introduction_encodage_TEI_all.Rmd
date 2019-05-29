@@ -755,9 +755,9 @@ Romary, Laurant. 2004. <a href="https://www.tei-c.org/Vault/MembersMeetings/2004
 <ul>
   <li><u>Axes avant</u> :
     <p style="text-align: justify">&#8702; <a id="xpath_child" style="color: #808080"><code>child::</code></a> (par défaut) : sélectionne les enfants du nœud courant ; ex. <code>child::w</code> <=> sélectionne tous les <code>w</code> qui sont enfants du nœud courant<br>
-    &#8702; <code>descendant::</code> : sélectionne les descendants (enfants, petits-enfant…) du nœud courant ; <code>descendant::w</code> <=> sélectionne tous les descendants de <code>w</code> courant<br>
-    &#8702; <code>attribute::</code> : sélectionne tous les attributs du nœud courant ; ex. <code>attribute::&#64;type</code> <=> sélectionne l'attribut <code>&#64;type</code> du nœud courant &mdash; + en option sa <code>"valeur"</code>, ex.  <code>&#64;type="adv"</code> <=> sélectionne uniquement l'attribut <code>&#64;type</code> dont la valeur est “adv”.<br>
-      &#8702; <code>descendant-or-self::</code> : sélectionne les descendants (enfants, petits-enfant…) du nœud courant et le nœud courant lui-même ; <code>&lt;entryFree&gt;/&lt;w&gt;//m[&#64;type="adv"]</code> => sélectionne tous les <code>&lt;m[&#64;type="adv"]&gt;</code> qui suivent <code>&lt;w&gt;</code> dans <code>&lt;entryFree&gt;</code><br>
+    &#8702; <code>descendant::</code> : sélectionne les éléments <code>&lt;wgt;</code> du nœud courant ; <code>descendant::w</code> <=> sélectionne tous les descendants de <code>w</code> courant<br>
+    &#8702; <code>attribute::</code> : sélectionne tous les attributs du nœud courant ; ex. <code>attribute::type</code> <=> sélectionne l'attribut <code>&#64;type</code> du nœud courant &mdash; + en option sa <code>"valeur"</code>, ex.  <code>&#64;type="adv"</code> <=> sélectionne uniquement l'attribut <code>&#64;type</code> dont la valeur est “adv”.<br>
+      &#8702; <code>descendant-or-self::</code> : sélectionne les descendants (enfants, petits-enfant…) du nœud courant et le nœud courant lui-même ; <code>&lt;entryFree&gt;/&lt;w&gt;//m[&#64;type="adv"]</code> => sélectionne tous les <code>&lt;m[&#64;type="adv"]&gt;</code> qui suivent <code>w</code> dans <code>entryFree</code><br>
       &#8702; <a id="xpath_fsibling" style="color: #808080"><code>following-sibling::</code></a> : sélectionne tous les “frères” après le nœud courant ; <code>following-sibling::w</code><br>
       &#8702; <code>following::</code> : sélectionne tout après la balise de fermeture du nœud courant<br> 
       &#8702; <code>namespace::</code> : sélectionne tous les nœuds des <a href="#tei_namespace"><code>namespaces</code></a> (espace de noms) du nœud courant</p>
@@ -909,6 +909,14 @@ Notez que cet élément est <b>obligatoire</b>.</p>
 
 <h3 style="padding-top: 16px;>Liste des 31 classes utilisées par <code>teidata.pointer</code>, classées par [module]</h3>
 <ul>
+<li>[analysis] :<br>
+<p>&#8702; <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.global.analytic.html" target="_blank">att.global.analytic</a><br>
+</li>
+
+<li>[linking] :<br>
+<p>&#8702; <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.global.linking.html">att.global.linking</a> (<code>&#64;</code>)
+</li>
+
 <li>[namesdates] :<br>
 <p>&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.datable.custom.html" target="_blank">att.datable.custom</a> (<code>&#64;datingMethod</code> | <code>&#64;datingPoint</code> ) : pour la normalisation des éléments d'évènements datables à un système de datation personnalisé autre que le calendrier Gregorien<br>
 ```{xml}
@@ -986,10 +994,14 @@ That wretched pair <name ref="#DPB1 #EBB1" type="person">the Browns</name> came 
 <!--...-->
 </entry>
 ```
+&#8702; <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.declaring.html" target="_blank">att.declaring</a><br>
 
+&#8702; <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.edition.html" target="_blank">att.edition</a><br>
+
+&#8702; <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.global.html" target="_blank">att.global</a><br>
 </p> 
 </li>
-<li>[transr] :<br>
+<li>[transr] : 3 <code>&#64;attribut</code>s teidata.pointer membres de 3 classes d'attributs<br>
 <p> &#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.coordinated.html" target="_blank">att.coordinated</a> (<code>&#64;start</code>) : relatif à un système de coordonnées<br>
 ```{xml}
 <!-- source https://www.tei-c.org/release/doc/tei-p5-doc/fr/html/examples-surface.html -->
@@ -1010,18 +1022,13 @@ That wretched pair <name ref="#DPB1 #EBB1" type="person">the Browns</name> came 
 </text>
 ```
 
+&#8702; <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.global.change.html" target="_blank">att.global.change</a> (<code>&#64;change</code>) : plusieurs états de révision<br>
+
+&#8702; <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.global.facs.html" target="_blank">att.global.facs</a> : pour exprimer la correspondance entre un élément correspondant à une transcription d’une partie d’une image représentant ce texte ou dans son intégralité <br>
 </p>
 </li>
-<li>att.datable</li>
-<li>att.datable.custom</li>
-<li>att.datcat</li>
-<li>att.declaring</li>
-<li>att.edition</li>
-<li>att.global</li>
-<li>att.global.analytic</li>
-<li>att.global.change</li>
-<li>att.global.facs</li>
-<li>att.global.linking</li>
+
+
 <li>att.global.rendition</li>
 <li>att.global.source></li>
 <li>att.handFeatures</li>
@@ -1299,7 +1306,7 @@ That silly man <name role="politician" type="person">David Paul Brown</name> has
 <date when-iso="1301/1400">fourteenth century</date>
 <date when-iso="1301/P100Y">fourteenth century</date>
 ```
-&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teidata.duration.w3c.html" target="_blank">teidata.duration.w3c</a> [tei] : <code>&#64;dur</code> &mdash précise la durée<br>
+&#8702; <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-teidata.duration.w3c.html" target="_blank">teidata.duration.w3c</a> [tei] : <code>&#64;dur</code> &mdash; précise la durée<br>
 ```{xml}
 <!-- source https://www.tei-c.org/release/doc/tei-p5-doc/en/html/ND.html -->
 I reached the station <time when="14:15:00">
