@@ -908,6 +908,7 @@ Notez que cet élément est <b>obligatoire</b>.</p>
 <p>Note au sujet de la validité du “NCNames” : <a href="https://www.w3.org/TR/xmlschema-2/#NCName" target="_blank"><code>NCNames</code></a> signifie un “nom non-colonisé” (= nom non-qualifié)<a href="#6" id="6-back"><sup style="font-size: 10px">6</sup></a> est une chaîne de caractères dont les symboles suivants sont exclus “@ , $ , % , & , / , + ,,, ;”, ainsi que les espaces et les parenthèses et il ne peut pas commencer par un chiffre, un point ou le signe -.</p>
 
 <h3 style="padding-top: 16px;>Liste des 31 classes utilisées par <code>teidata.pointer</code>, classées par [module]</h3>
+<i>[NOTE : mise à jour en cours]</i>
 <ul>
 <li>[analysis] :<br>
 <p>&#8702; <a href="https://tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.global.analytic.html" target="_blank">att.global.analytic</a><br>
